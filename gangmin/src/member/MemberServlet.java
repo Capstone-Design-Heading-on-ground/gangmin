@@ -45,7 +45,7 @@ public class MemberServlet extends HttpServlet {
 			String mname = request.getParameter("mname");
 			String mnickname = request.getParameter("mnickname");
 			String mhp = request.getParameter("hp1") + "-" + request.getParameter("hp2") + "-" + request.getParameter("hp3");
-			String maddress = "서울시 강남구";
+			String maddress = request.getParameter("maddress");
 			String mmail = request.getParameter("mmail");
 			String mbirthday= request.getParameter("mbirthday");
 			int madmin = 0;

@@ -1,9 +1,11 @@
 /**
  * 
  */
+/**
+ * 
+ */
 function test() {
-	alert("hi");
-	
+	alert(`hi`);
 	var frmlogin = document.frmlogin;
     var id = document.getElementById('pid').value;
     var name = document.getElementById('pname').value;
@@ -55,7 +57,7 @@ function test() {
           return false;
         } else{
 			frmlogin.method = "post";
-			frmlogin.action = "/login.jsp";
+			frmlogin.action = "/gangmin/member/new";
 			frmlogin.submit();
             
         }
