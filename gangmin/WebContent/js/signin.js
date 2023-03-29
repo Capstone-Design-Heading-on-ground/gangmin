@@ -2,6 +2,9 @@
  * 
  */
 function test() {
+	alert("hi");
+	
+	var frmlogin = document.frmlogin;
     var id = document.getElementById('pid').value;
     var name = document.getElementById('pname').value;
     var password = document.getElementById('pwd').value;
@@ -51,7 +54,9 @@ function test() {
           alert("비밀번호불일치");
           return false;
         } else{
-            location.href=`./login.jsp`;
-          return true;
+			frmlogin.method = "post";
+			frmlogin.action = "/login.jsp";
+			frmlogin.submit();
+            
         }
   }

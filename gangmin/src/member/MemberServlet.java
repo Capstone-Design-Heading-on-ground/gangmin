@@ -7,6 +7,7 @@ import java.time.Instant;
 import java.util.Date;
 import java.util.Locale;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -52,7 +53,7 @@ public class MemberServlet extends HttpServlet {
 			MemberVO memberVO = new MemberVO(mid, mpw, mname, mnickname, mhp, maddress, mmail, mbirthday, madmin);
 			memberDAO.addMember(memberVO);
 			
-			
+			nextPage = "login.jsp";
 		} else if(action.equals("/login")) {
 			String mid = request.getParameter("mid");
 			String mpw = request.getParameter("mpw");
@@ -60,5 +61,8 @@ public class MemberServlet extends HttpServlet {
 
 			String isLogon = memberDAO.loginMember(mid, mpw);
 		}
+		
+		RequestDispatcher dispach = request.getRequestDispatcher("nextPage");
+		dispach.forward(request, response);
 	}
 }

@@ -34,7 +34,7 @@
   <br>
 <div class="login-page">
     <div class="form">
-      <form class="login-form">
+      <form class="login-form" name = "frmlogin">
         <label>아이디</label>
         <input type="text" id="pid" placeholder="아이디"/>
         <label>비밀번호</label>
@@ -63,7 +63,7 @@
           <input type="tel" id="hp2" name="hp2" maxlength="4">
           <input type="tel" id="hp3" name="hp3" maxlength="4">
         </div>
-        <button type="submit" onclick="test()">회원가입</button>
+        <button type="button" onclick="test()">회원가입</button>
       </form>
     </div>
   </div>
