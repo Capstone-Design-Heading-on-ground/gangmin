@@ -1,0 +1,363 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    width: 1350px;
+    margin: 0 auto;
+}
+ul{
+    padding-top: 40px;
+    padding-left: 50px;
+}
+li{
+    padding: 0px 30px;
+    list-style: none;
+    float:left;
+}
+#wrap{
+    margin-top: 20px;
+}
+#top{
+    height: 150px;
+}
+#top_left{
+    background-image: url("../images/logo.png") no-repeat;
+    display: block;
+    background-size: cover;
+    width: 150px;
+    height: 150px;
+    float: left;
+}
+#top_middle{
+    height: 150px;
+    width: 700px;
+    float: left;
+}
+#search{
+    height: 75px;
+}
+#search > input{
+    height: 40px;
+    width: 500px;
+    margin: 30px 350px;
+    border: 1px solid transparent;
+    border-radius: 5px;
+    border-image: linear-gradient(to right, red 0%, purple 100%);
+    border-image-slice: 1;
+}
+#search > input:focus{
+    outline: none;
+}
+#nav{
+    width:1000px;
+    margin-left: 150px;
+    height: 75px;
+}
+#nav li{
+    margin-right: 80px;
+}
+#top_right{
+    height: 150px;
+    width: 230px;
+    float:right;
+}
+#login{
+    margin-top: 40px;
+    width: 70px;
+    height: 30px;
+    background-color: white;
+    border: 1px solid #eee;
+}
+#new{
+    width: 100px;
+    height: 30px;
+    background-color: #6666ff;
+    border: none;
+    color: white;
+    font-weight: 600;
+}
+#advertise{
+    background: linear-gradient(to right bottom, yellow, red);
+    height: 80px;
+}
+#adfont{
+    text-align: center;
+    line-height: 80px;
+    font-size: 30px;
+    font-weight: 600;
+    color: white;
+}
+#adfont > b{
+    color: yellow;
+}
+#aside_left{
+    margin-right: 10px;
+    width: 910px;
+    height: 1000px;
+    float: left;
+}
+#aside_right{
+    width: 430px;
+    height: 1000px;
+    float: left;
+}
+#search2{
+    height: 50px;
+}
+#div_checkbox{
+    height: 260px;
+    border: 2px solid gray;
+}
+#content{
+    margin-top: 20px;
+}
+#search2 > #txt_search2{
+    float: left;
+    height: 30px;
+    width: 878px;
+    margin-top: 10px;
+    border: 1px solid rgb(255, 48, 48);
+}
+#search2 > #txt_search2:focus{
+    outline: none;
+}
+#div_checkbox li{
+    padding-left: 10px;
+}
+#div_checkbox input{
+    margin-left: 2px;
+    margin-top:5px;
+}
+#search2 > #btn_search2{
+    margin-top: 10px;
+    float: left;
+    background-image: url("../images/button.png");
+    background-size: 30px 32px;
+    width: 30px;
+    height: 32px;
+    border: none;
+    cursor: pointer;
+}
+.category{
+    display: flex;
+    height: 75px;
+}
+.category > p{
+    font-size: 12px;
+    font-weight: bold;
+    margin-top: 10px;
+    margin-left: 10px;
+    width:50px;
+    padding-top: 0px;
+}
+.checkboxs{
+    padding-top: 7px;
+    width: 100%;
+    height:70px;
+}
+#sort{
+    margin-top: 20px;
+}
+#search3{
+    float: right;
+    background-color: #333;
+    color:white;
+    height: 30px;
+    cursor: pointer;
+    margin-top: 10px;
+    width:90px;
+}
+#sort input{
+    display: none;
+}
+#sort li{
+    padding:0px 10px;
+    width:80px;
+    float:left;
+    height: 40px;
+    line-height: 40px;
+    border:1px solid gray;
+    cursor: pointer;
+    color:gray;
+}
+#toggle1:checked + label li{
+    border: 1px solid black;
+    border-bottom: none;
+    color:black;
+    font-weight: bold;
+}
+#toggle2:checked + label li{
+    border: 1px solid black;
+    border-bottom: none;
+    color:black;
+    font-weight: bold;
+}
+#toggle3:checked + label li{
+    border: 1px solid black;
+    border-bottom: none;
+    color:black;
+    font-weight: bold;
+}
+#toggle4:checked + label li{
+    border: 1px solid black;
+    border-bottom: none;
+    color:black;
+    font-weight: bold;
+}
+#toggle5:checked + label li{
+    border: 1px solid black;
+    border-bottom: none;
+    color:black;
+    font-weight: bold;
+}
+#onoff input{
+    display: none;
+}
+#onoff{
+    width:100%;
+    height: 50px;
+}
+#onoff li{
+    font-weight: bolder;
+    color:gray;
+    width:212px;
+    padding: 0px;
+    border: 1px solid gray;
+    text-align: center;
+    line-height: 50px;
+    cursor: pointer;
+}
+#onoff label li:last-child{
+    color:black;
+    border: 2px solid black;
+    border-bottom: none;
+}
+#onoff_toggle:checked + label li:first-child{
+    color:black;
+    border: 2px solid black;
+    border-bottom: none;
+}
+#onoff_toggle:checked + label li:last-child{
+    color:gray;
+    border: 1px solid gray;
+}
+#second{
+    clear: both;
+    height: 50px;
+}
+#like{
+    float: left;
+    cursor: pointer;
+    width:70px;
+    height: 30px;
+    background-color: #333;
+    color:white;
+    font-weight: bolder;
+    border: none;
+    border-radius: 20px;
+    margin-top: 9px;
+    margin-left: 10px;
+}
+#second p{
+    text-align: center;
+    font-size: small;
+    color:#333;
+    line-height: 50px;
+}
+#exam{
+    background-color: #eee;
+    height:450px;
+}
+#exam input{
+    display: none;
+}
+#exam p{
+    cursor: pointer;
+    font-weight: bolder;
+    line-height: 45px;
+    height:45px;
+    margin:0 auto;
+    margin-bottom: 7px;
+    width:400px;
+    background-color: white;
+}
+#exam_toggle1:checked + label p{
+    background-color: red;
+    color: white;
+}
+#exam_toggle2:checked + label p{
+    background-color: red;
+    color: white;
+}
+#exam_toggle3:checked + label p{
+    background-color: red;
+    color: white;
+}
+#exam_toggle4:checked + label p{
+    background-color: red;
+    color: white;
+}
+#exam_toggle5:checked + label p{
+    background-color: red;
+    color: white;
+}
+#exam_toggle6:checked + label p{
+    background-color: red;
+    color: white;
+}
+#exam_toggle7:checked + label p{
+    background-color: red;
+    color: white;
+}
+
+#line2{
+    display:none;
+}
+
+#math{
+    display:none;
+}
+
+.classes{
+    display: flex;
+    clear:both;
+    height: 150px;
+    border: 1px solid black;
+    border-top: none;
+}
+.classes > .profile{
+    margin-top: 20px;
+    margin-left: 20px;
+    width: 100px;
+    height: 100px;
+    border-radius: 10px;
+}
+.classes  h2 {
+    margin-top: 20px;
+    margin-left: 20px;
+}
+.classes  h3 {
+    margin-top: 50px;
+    margin-left: 300px;
+}
+.classes input{
+    margin-left: 300px;
+    width: 150px;
+}
+.classes .star {
+    width:40px;
+    height:30px;
+    margin-top: 20px;
+    margin-left: 10px;
+}
+.classes .div1{
+    width: 800px;
+}
+.div2 h3, .div2 input{
+    float: right;
+    margin-right: 50px;
+}
+.div2 h3{
+    font-size: 16px;
+}
