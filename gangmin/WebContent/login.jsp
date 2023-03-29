@@ -33,13 +33,6 @@
   </div>
   <div class="login-page">    
     <div class="form">      
-      <form class="register-form">
-        <input type="text" placeholder="name"/>
-        <input type="password" placeholder="password"/>
-        <input type="text" placeholder="email address"/>
-        <button>create</button>
-        <p class="message">Already registered? <a href="#">Sign In</a></p>
-      </form>
       <form class="login-form">
         <input type="text" placeholder="아이디"/>
         <input type="password" placeholder="비밀번호"/>
@@ -49,5 +42,7 @@
     </div>
   </div>
   <link rel="stylesheet" href="./css/login.css">
+  
+  
 </body>
 </html>
