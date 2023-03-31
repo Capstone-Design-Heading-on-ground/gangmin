@@ -2,7 +2,11 @@ package member;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
 
 import javax.naming.Context;
 import javax.naming.InitialContext;
@@ -58,13 +62,44 @@ public class MemberDAO {
 		}
 	}
 	
-	public String loginMember(String mid, String mpw) {
+	public MemberVO loginMember(String inserted_id) {
+		String mid="nonexistent";
+		MemberVO memberVO = new MemberVO();
 		try {
 			conn = dataFactory.getConnection();
+			String query = "SELECT * FROM MEMBER WHERE MID = ?";
+			
+			pstmt = conn.prepareStatement(query);
+			pstmt.setString(1, inserted_id);
+			System.out.println(query);
+			ResultSet rs = pstmt.executeQuery();
+			while (rs.next()) {
+				int mkey = rs.getInt("MKEY");
+				mid = rs.getString("MID");
+				String mpw = rs.getString("MPW");
+				String mname = rs.getString("MNAME");
+				String mnickname = rs.getString("MNICKNAME");
+				String mhp = rs.getString("MHP");
+				String maddress = rs.getString("MADDRESS");
+				String mmail = rs.getString("MMAIL");
+				Date mtime = rs.getDate("MTIME");
+				String mbirthday = rs.getString("MBIRTHDAY");
+				int madmin = rs.getInt("MADMIN");
+				System.out.println("hi1");
+				memberVO = new MemberVO(mkey,mid,mpw,mname,mnickname,mhp,maddress,mmail,mtime,mbirthday,madmin);
+			}
+			if(mid.equals("nonexistent")) {
+				memberVO = new MemberVO();
+				memberVO.setMid(mid);
+			}
+			rs.close();
+			pstmt.close();
+			conn.close();
 			
 		}catch (SQLException e) {
+			System.out.println("hi2");
 			e.printStackTrace();
 		}
-		return "";
+		return memberVO;
 	}
 }

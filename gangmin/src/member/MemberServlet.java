@@ -5,6 +5,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.Instant;
 import java.util.Date;
+import java.util.List;
 import java.util.Locale;
 
 import javax.servlet.RequestDispatcher;
@@ -13,6 +14,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  * Servlet implementation class MemberServlet
@@ -38,7 +40,9 @@ public class MemberServlet extends HttpServlet {
 		
 		// action이 null 일때
 		if(action == null) {
-			
+			nextPage = "/login.jsp";
+			System.out.println("test");
+			response.sendRedirect("/login.jsp");
 		} else if(action.equals("/new")) {  //action을 new로 받았을때
 			String mid = request.getParameter("mid");
 			String mpw = request.getParameter("mpw");
@@ -53,16 +57,44 @@ public class MemberServlet extends HttpServlet {
 			MemberVO memberVO = new MemberVO(mid, mpw, mname, mnickname, mhp, maddress, mmail, mbirthday, madmin);
 			memberDAO.addMember(memberVO);
 			
-			nextPage = "login.jsp";
+			nextPage = request.getContextPath() + "/login.jsp" + "?create=success";
+			response.sendRedirect(nextPage);
+			
 		} else if(action.equals("/login")) {
 			String mid = request.getParameter("mid");
 			String mpw = request.getParameter("mpw");
+			String isLogon = "login_invalid";
+			String isNull = null;
 			
-
-			String isLogon = memberDAO.loginMember(mid, mpw);
+			MemberVO memberVO = memberDAO.loginMember(mid);
+			if(memberVO.getMid().equals("nonexistent")) {
+				nextPage = request.getContextPath() + "/login.jsp" + "?create=login_invalid";
+			}else {
+				if(memberVO.getMpw().equals(mpw)) {
+					nextPage = request.getContextPath() + "/login.jsp" + "?create=unmatched_password";
+				}else {
+					isLogon = "unmatched_password";
+				}
+			}
+			
+			if(isLogon.equals("login_invalid")) {
+				nextPage = request.getContextPath() + "/login.jsp" + "?create=login_invalid";
+				response.sendRedirect(nextPage);
+			}else if(isLogon.equals("unmatched_password")) {
+				nextPage = request.getContextPath() + "/login.jsp" + "?create=unmatched_password";
+				response.sendRedirect(nextPage);
+			}else if(isLogon.equals("login_success")) {
+				HttpSession session = request.getSession();
+				session.setAttribute("mnickname", memberVO.getMnickname());
+				System.out.println("login Successful");
+				//nextPage = request.getContextPath() + "/index.jsp";
+			}
+		} else {
+			nextPage = request.getContextPath() + "/login.jsp" + "?create=success";
+			response.sendRedirect(nextPage);
 		}
 		
-		RequestDispatcher dispach = request.getRequestDispatcher("nextPage");
-		dispach.forward(request, response);
+		//RequestDispatcher dispach = request.getRequestDispatcher(nextPage);
+		//dispach.forward(request, response);
 	}
 }

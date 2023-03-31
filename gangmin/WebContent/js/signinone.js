@@ -5,7 +5,6 @@
  * 
  */
 function test() {
-	alert(`hi`);
 	var frmlogin = document.frmlogin;
     var id = document.getElementById('pid').value;
     var name = document.getElementById('pname').value;

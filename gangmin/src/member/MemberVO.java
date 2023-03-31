@@ -4,6 +4,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class MemberVO {
+	private int mkey;
 	private String mid;
 	private String mpw;
 	private String mname;
@@ -15,9 +16,26 @@ public class MemberVO {
 	private String mbirthday;
 	private int madmin;
 	
+	public MemberVO() {}
+	
 	public MemberVO(String mid, String mpw, String mname, String mnickname, String mhp, String maddress, 
 			 String mmail, String mbirthday, int madmin) {
 			super();
+			this.mid = mid;
+			this.mpw = mpw;
+			this.mname = mname;
+			this.mnickname = mnickname;
+			this.mhp = mhp;
+			this.maddress = maddress;
+			this.mmail = mmail;
+			this.mtime = mtime;
+			this.mbirthday = mbirthday;
+			this.madmin = madmin;
+	}
+	public MemberVO(int mkey, String mid, String mpw, String mname, String mnickname, String mhp, String maddress, 
+			 String mmail, Date mtime ,String mbirthday, int madmin) {
+			super();
+			this.mkey = mkey;
 			this.mid = mid;
 			this.mpw = mpw;
 			this.mname = mname;
@@ -108,6 +126,10 @@ public class MemberVO {
 
 	public void setMadmin(int madmin) {
 		this.madmin = madmin;
+	}
+	
+	public int getMkey() {
+		return mkey;
 	}
 	
 }
