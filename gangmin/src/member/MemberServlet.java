@@ -68,10 +68,10 @@ public class MemberServlet extends HttpServlet {
 			
 			MemberVO memberVO = memberDAO.loginMember(mid);
 			if(memberVO.getMid().equals("nonexistent")) {
-				nextPage = request.getContextPath() + "/login.jsp" + "?create=login_invalid";
+				isLogon = "login_invalid";
 			}else {
 				if(memberVO.getMpw().equals(mpw)) {
-					nextPage = request.getContextPath() + "/login.jsp" + "?create=unmatched_password";
+					isLogon = "login_success";
 				}else {
 					isLogon = "unmatched_password";
 				}
@@ -85,9 +85,11 @@ public class MemberServlet extends HttpServlet {
 				response.sendRedirect(nextPage);
 			}else if(isLogon.equals("login_success")) {
 				HttpSession session = request.getSession();
+				session.setAttribute("mkey", memberVO.getMkey());
 				session.setAttribute("mnickname", memberVO.getMnickname());
 				System.out.println("login Successful");
-				//nextPage = request.getContextPath() + "/index.jsp";
+				nextPage = request.getContextPath() + "/index.jsp";
+				response.sendRedirect(nextPage);
 			}
 		} else {
 			nextPage = request.getContextPath() + "/login.jsp" + "?create=success";
