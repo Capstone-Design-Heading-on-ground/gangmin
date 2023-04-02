@@ -6,12 +6,11 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <c:set var="contextPath" value="${pageContext.request.contextPath}"  />  
 <%
+	request.setCharacterEncoding("UTF-8");
 	String isLogon = null;
-
-	if(session==null || !request.isRequestedSessionIdValid()){
-		isLogon = null;
-	}else{
-	 	int mkey = ((Integer)(session.getAttribute("mkey"))).intValue();
+	
+	if(session.getAttribute("mkey")!=null){
+		int mkey = ((Integer)(session.getAttribute("mkey"))).intValue();
 	 	String mnickname = (String)session.getAttribute("mnickname");
 	 	isLogon = mnickname;
 	}
@@ -23,13 +22,13 @@
 <head>
     <meta charset="UTF-8">
     <title>강의의 민족 강민</title>
-    <link rel="stylesheet" href="css/style2.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/style2.css">
 </head>
 <body>
     <div id="wrap">
     <div id="top">
         <div id="top_left">
-            <img src="images/logo.png" style="height:150px;">
+            <img src="${pageContext.request.contextPath}/images/logo.png" style="height:150px;">
         </div>
         <div id="top_middle">
             <div id="search">
@@ -142,126 +141,29 @@
                     <label for="toggle5"><li>강의명순</li></label>                                 
                 </div>
                 <input type="button" value="결과 내 검색" id="search3" onclick="doSearch()">
-                <div class="classes" id="math1">
-                    <img class="profile" src="images/huj.jpg">
-                    <div class="div1">
-                    <h2>현우진의 약점체크</h2>
-                    <img class="star" src="images/star.png">
-                    <b>4.5</b>(100+)
-                    </div>
-                    <div class="div2">
-                    <h3>3개월 / 300,000원</h3>
-                    <input type="button" value="후기 보러가기">
-                    </div>
-                </div>
-                <div class="classes" id="math2">
-                    <img class="profile" src="images/hsw.jpg">
-                    <div class="div1">
-                    <h2>한석원의 4의규칙</h2>
-                    <img class="star" src="images/star.png">
-                    <b>4.3</b>(100+)
-                    </div>
-                    <div class="div2">
-                    <h3>1개월 / 100,000원</h3>
-                    <input type="button" value="후기 보러가기">
-                    </div>
-                </div>
-                <div class="classes" id="math3">
-                    <img class="profile" src="images/jsj.png">
-                    <div class="div1">
-                    <h2>정승제 모의고사</h2>
-                    <img class="star" src="images/star.png">
-                    <b>4.2</b>(100+)
-                    </div>
-                    <div class="div2">
-                    <h3>3개월 / 150,000원</h3>
-                    <input type="button" value="후기 보러가기">
-                    </div>
-                </div>
-                <div class="classes" id="english1">
-                    <img class="profile" src="images/jjs.jpg">
-                    <div class="div1">
-                    <h2>수능영어 조정식</h2>
-                    <img class="star" src="images/star.png">
-                    <b>4.2</b>(100+)
-                    </div>
-                    <div class="div2">
-                    <h3>1개월 / 50,000원</h3>
-                    <input type="button" value="후기 보러가기">
-                    </div>
-                </div>
-                <div class="classes" id="english2">
-                    <img class="profile" src="images/lmh.png">
-                    <div class="div1">
-                    <h2>이명학의 공감영어</h2>
-                    <img class="star" src="images/star.png">
-                    <b>4.2</b>(100+)
-                    </div>
-                    <div class="div2">
-                    <h3>2개월 / 100,000원</h3>
-                    <input type="button" value="후기 보러가기">
-                    </div>
-                </div>
-                <div class="classes" id="sotial1">
-                    <img class="profile" src="images/ljh.jpeg">
-                    <div class="div1">
-                    <h2>주연쌤의 사탐정복</h2>
-                    <img class="star" src="images/star.png">
-                    <b>4.2</b>(100+)
-                    </div>
-                    <div class="div2">
-                    <h3>2개월 / 80,000원</h3>
-                    <input type="button" value="후기 보러가기">
-                    </div>
-                </div>
-                <div class="classes" id="math4">
-                    <img class="profile" src="images/bsm.jpg">
-                    <div class="div1">
-                    <h2>실전에 강하다! 배성민수학</h2>
-                    <img class="star" src="images/star.png">
-                    <b>4.2</b>(100+)
-                    </div>
-                    <div class="div2">
-                    <h3>2개월 / 120,000원</h3>
-                    <input type="button" value="후기 보러가기">
-                    </div>
-                </div>
-                <div class="classes" id="korean1">
-                    <img class="profile" src="images/ksl.jpg">
-                    <div class="div1">
-                    <h2>김승리 국어</h2>
-                    <img class="star" src="images/star.png">
-                    <b>4.2</b>(100+)
-                    </div>
-                    <div class="div2">
-                    <h3>2개월 / 120,000원</h3>
-                    <input type="button" value="후기 보러가기">
-                    </div>
-                </div>
-                <div class="classes" id="korean2">
-                    <img class="profile" src="images/kdw.png">
-                    <div class="div1">
-                    <h2>김동욱의 클래스의 차이</h2>
-                    <img class="star" src="images/star.png">
-                    <b>4.2</b>(100+)
-                    </div>
-                    <div class="div2">
-                    <h3>2개월 / 120,000원</h3>
-                    <input type="button" value="후기 보러가기">
-                    </div>
-                </div>
-                <div class="classes" id="korean3">
-                    <img class="profile" src="images/kjm.png">
-                    <div class="div1">
-                    <h2>김민정 EBS국어 비문학</h2>
-                    <img class="star" src="images/star.png">
-                    <b>4.2</b>(100+)
-                    </div>
-                    <div class="div2">
-                    <h3>2개월 / 120,000원</h3>
-                    <input type="button" value="후기 보러가기">
-                    </div>
-                </div>
+                <c:choose>
+                	<c:when test="${empty lecturesList }">
+                		<div class="classes">
+                			<h2>등록된 강의가 없습니다.</h2>
+                		</div>
+                	</c:when>
+                	<c:when test="${!empty lecturesList }">
+                		<c:forEach var="lecture" items="${lecturesList }" varStatus="lectureNum">
+                			<div class="classes">
+                				<img class="profile" src="${contextPath}/images/${lecture.limage}">
+                				<div class="div1">
+                					<h2>${lecture.lid}</h2>
+                					<img class="star" src="${contextPath}/images/star.png">
+                					<b>${lecture.lsumgrade}</b>(${lecture.lcountgrade})
+                				</div>
+                				<div class="div2">
+                					<h3>${lecture.lduration}개월 / ${lecture.lprice}원</h3>
+                					<input type="button" value="후기 보러가기">
+                				</div>
+                			</div>
+                		</c:forEach>
+                	</c:when>
+                </c:choose>
             </div>
             <div id="aside_right">
                 <div id="onoff">

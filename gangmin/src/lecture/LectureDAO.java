@@ -3,6 +3,7 @@ package lecture;
 import javax.sql.DataSource;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.util.List;
 import java.util.ArrayList;
 
@@ -26,6 +27,37 @@ public class LectureDAO {
 	
 	public List<LectureVO> selectAllLectures(){
 		List<LectureVO> lecturesList = new ArrayList();
+		try {
+			conn = dataFactory.getConnection();
+			String query = "SELECT LKEY, LID, LPRICE, LDURATION, LIMAGE, LSUMGRADE, LCOUNTGRADE"
+							+ " FROM LECTURE"
+							+ " ORDER BY LCOUNTGRADE desc";
+			pstmt = conn.prepareStatement(query);
+			ResultSet rs = pstmt.executeQuery();
+			while(rs.next()) {
+				int lkey = rs.getInt("LKEY");
+				String lid = rs.getString("LID");
+				int lprice = rs.getInt("LPRICE");
+				int lduration = rs.getInt("LDURATION");
+				String limage = rs.getString("LIMAGE");
+				int lsumgrade = rs.getInt("LSUMGRADE");
+				int lcountgrade = rs.getInt("LCOUNTGRADE");
+				LectureVO lecture = new LectureVO();
+				lecture.setLkey(lkey);
+				lecture.setLid(lid);
+				lecture.setLprice(lprice);
+				lecture.setLduration(lduration);
+				lecture.setLimage(limage);
+				lecture.setLsumgrade(lsumgrade);
+				lecture.setLcountgrade(lcountgrade);
+				lecturesList.add(lecture);
+			}
+			rs.close();
+			pstmt.close();
+			conn.close();
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
 		return lecturesList;
 	}
 }
