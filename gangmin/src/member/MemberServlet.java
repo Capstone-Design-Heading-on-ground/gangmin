@@ -34,6 +34,7 @@ public class MemberServlet extends HttpServlet {
 	}
 	protected void doHandle(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String nextPage = null;
+		HttpSession session = request.getSession();
 		request.setCharacterEncoding("utf-8");
 		response.setContentType("text/html;charset=utf-8");
 		String action = request.getPathInfo();
@@ -84,19 +85,24 @@ public class MemberServlet extends HttpServlet {
 				nextPage = request.getContextPath() + "/login.jsp" + "?create=unmatched_password";
 				response.sendRedirect(nextPage);
 			}else if(isLogon.equals("login_success")) {
-				HttpSession session = request.getSession();
 				session.setAttribute("mkey", memberVO.getMkey());
 				session.setAttribute("mnickname", memberVO.getMnickname());
 				System.out.println("login Successful");
-				nextPage = request.getContextPath() + "/index.jsp";
+				nextPage = request.getContextPath() + "/lecture/listLectures.do";
 				response.sendRedirect(nextPage);
 			}
-		} else {
-			nextPage = request.getContextPath() + "/login.jsp" + "?create=success";
+		} else if(action.equals("/logout")){
+			session.invalidate();
+			nextPage = request.getContextPath() + "/lecture/listLectures.do";
 			response.sendRedirect(nextPage);
+		}else {
+			
 		}
+			//nextPage = request.getContextPath() + "/login.jsp" + "?create=success";
+			//response.sendRedirect(nextPage);
+	}
 		
 		//RequestDispatcher dispach = request.getRequestDispatcher(nextPage);
 		//dispach.forward(request, response);
-	}
 }
+

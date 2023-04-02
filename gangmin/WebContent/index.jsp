@@ -22,13 +22,13 @@
 <head>
     <meta charset="UTF-8">
     <title>강의의 민족 강민</title>
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/style2.css">
+    <link rel="stylesheet" href="${contextPath}/css/style2.css">
 </head>
 <body>
     <div id="wrap">
     <div id="top">
         <div id="top_left">
-            <img src="${pageContext.request.contextPath}/images/logo.png" style="height:150px;">
+            <img src="${contextPath}/images/logo.png" style="height:150px;">
         </div>
         <div id="top_middle">
             <div id="search">
@@ -46,13 +46,13 @@
         <div id="top_right">
         	<c:choose>
         		<c:when test="${empty isLogon }">
-            		<a href="login.jsp"><input type="button" value="로그인" id="login"></a>
-            		<a href="signin.jsp"><input type="button" value="회원 가입하기" id="new"></a>
+            		<a href="/gangmin/login.jsp"><input type="button" value="로그인" id="login"></a>
+            		<a href="/gangmin/signin.jsp"><input type="button" value="회원 가입하기" id="new"></a>
             	</c:when>
             	<c:otherwise>
             		<h4><%=isLogon %>님 환영합니다.</h4>
             		<a href="#"><input type="button" value="내정보" id="myPage"></a>
-            		<a href="#"><input type="button" value="로그아웃" id="logout"></a>
+            		<a href="/gangmin/member/logout"><input type="button" value="로그아웃" id="logout"></a>
             	</c:otherwise>
             </c:choose>
         </div>

@@ -13,7 +13,7 @@ function test(){
             return false;
     }else{
     	frmlogin.method = "post";
-		frmlogin.action = "/gangmin/member/login";
+		frmlogin.action = "/gangmin/lecture/listLectures.do";
 		frmlogin.submit();
     }
 }
