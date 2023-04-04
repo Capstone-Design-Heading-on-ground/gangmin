@@ -95,7 +95,17 @@ public class MemberServlet extends HttpServlet {
 			session.invalidate();
 			nextPage = request.getContextPath() + "/lecture/listLectures.do";
 			response.sendRedirect(nextPage);
-		}else {
+		}else if(action.equals("/delete"))
+		{
+			String mid = request.getParameter("mid");
+			String mpw = request.getParameter("mpw");
+			memberDAO.deleteMember(mid, mpw);
+			
+			nextPage = request.getContextPath() + "/member/logout";
+			response.sendRedirect(nextPage);
+			
+		}
+		else {
 			
 		}
 			//nextPage = request.getContextPath() + "/login.jsp" + "?create=success";

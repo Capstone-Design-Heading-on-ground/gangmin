@@ -102,4 +102,24 @@ public class MemberDAO {
 		}
 		return memberVO;
 	}
+	
+	public void deleteMember(String id, String pw)
+	{
+		try
+		{
+			conn = dataFactory.getConnection();
+			String query = "DELETE FROM MEMBER WHERE MID = ? AND MPW = ?";
+			pstmt = conn.prepareStatement(query);
+			pstmt.setString(1, id);
+			pstmt.setString(2, pw);
+			System.out.println("hi delete");
+			pstmt.executeUpdate();
+			
+			pstmt.close();
+			conn.close();
+		}catch(SQLException e)
+		{
+			e.printStackTrace();
+		}
+	}
 }

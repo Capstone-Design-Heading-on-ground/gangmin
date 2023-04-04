@@ -51,7 +51,7 @@
             	</c:when>
             	<c:otherwise>
             		<h4><%=isLogon %>님 환영합니다.</h4>
-            		<a href="#"><input type="button" value="내정보" id="myPage"></a>
+            		<a href="/gangmin/memberdelete.jsp"><input type="button" value="내정보" id="myPage"></a>
             		<a href="/gangmin/member/logout"><input type="button" value="로그아웃" id="logout"></a>
             	</c:otherwise>
             </c:choose>
