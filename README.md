@@ -343,10 +343,11 @@ COMMENT에는 문제 해결의 키, 주요 개념 등이
 ```
 ## DB QUERY문
 ### 1. Coment Table
-```
+
+
 	CREATE TABLE COMENT(
  ckey NUMBER(8) PRIMARY KEY,
- ccontent VARCHAR2(200) UNIQUE NOT NULL,
+ ccontent VARCHAR2(200) NOT NULL,
  lkey NUMBER(8),
  mkey NUMBER(8),
  crecommend NUMBER(8),
