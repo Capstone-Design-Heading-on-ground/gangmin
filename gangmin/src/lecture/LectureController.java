@@ -60,7 +60,10 @@ public class LectureController extends HttpServlet {
 			}else if(action.equals("/connectLecture")) {
 				int lkey = Integer.parseInt(request.getParameter("lkey"));
 				lectureVO = lectureService.infoLecture(lkey);
-				
+				lectureVO.setLinfo(lectureVO.getLinfo().replace("\n", "<br/>"));
+				request.setAttribute("infoLecture", lectureVO);
+				RequestDispatcher dispatch = request.getRequestDispatcher("/lecture_info.jsp");
+				dispatch.forward(request, response);
 				System.out.println(lkey);
 			}else {
 				System.out.println(action);
