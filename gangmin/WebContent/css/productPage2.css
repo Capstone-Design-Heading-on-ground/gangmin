@@ -124,113 +124,79 @@ td{
     text-align: center;
 }
 
-.star-rating {
-
-    display: flex;
-    flex-direction: row-reverse;
-    font-size: 2.25rem;
-    line-height: 2.5rem;
-    justify-content: space-around;
-    padding: 0 0.2em;
+a, a:hover, a:visited, a:active{
+    text-decoration: none;
+    color: #000;
+}
+a:hover{
+    color: #a00;
+}
+h1{
     text-align: center;
-    width: 5em;
-    position: relative;
-  }
-   
-  .star-rating input {
+    background-color: #fff;
+    padding: 5px;
+    margin: 0;
+}
+
+
+.wrap{
+    max-width: 1350px;
+    margin: 0 auto;
+    height: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+
+}
+.reviewform textarea{
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+.cmd{
+    margin-top: 20px;
+    text-align: right;
+}
+.cmd input[type="button"]{
+    padding: 10px 20px;
+    border: 1px solid #e8e8e8;
+    background-color: #fff;
+    background-color:#000;  
+    color: #fff;
+}
+
+.warning_msg {
     display: none;
+    position: relative;
+    text-align: center;
+    line-height: 26px;
+    width: 100%;
+    color: red;
+    padding: 10px;
+    box-sizing: border-box;
+    border: 1px solid #e0e0e0;
+}
+
+.rating {
+    position: relative;
+    font-size: 3rem;
+    color: #ddd;
   }
-   
-  .star-rating label {
-    -webkit-text-fill-color: transparent; /* Will override color (regardless of order) */
-    -webkit-text-stroke-width: 2.3px;
-    -webkit-text-stroke-color: #2b2a29;
+  
+  .rating input {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    opacity: 0;
     cursor: pointer;
   }
-   
-  .star-rating :checked ~ label {
-    -webkit-text-fill-color: gold;
+  
+  .rating span {
+    width: 0;
+    position: absolute; 
+    left: 0;
+    color: red;
+    overflow: hidden;
+    pointer-events: none;
   }
-   
-  .star-rating label:hover,
-  .star-rating label:hover ~ label {
-    -webkit-text-fill-color: #fff58c;
-  }
-
- 
-  #form-commentInfo{
-    width: 100%;
-    margin-top :20px;
-    background-color: silver;
-}
-
-#comment-count{
-    margin-bottom: 10px; 
-}
-
-#comment-input{
-    width: 50%;
-    height: 3.3em;
-}
-
-#submit{
-    background-color: rgb(0, 128,255);
-    width: 5.5em;
-    height: 3.3em;;
-    font-size: 15px;
-    font-weight: bold;
-    color: aliceblue;
-}
-
-#voteUp, #voteDown{
-    width: 3.5em;
-    height: 1.9em;
-    background-color: aqua;    
-}
-
-#comments{
-    margin-top: 10px;
-}
-
-.eachComment{   
-    width :50%; 
-    margin: 10px;  
-    padding: 0.5em; 
-    border-bottom: 1px solid #c1bcba;
-}
-
-.eachComment .name{
-    font-size: 1.5em;
-    font-weight: bold;
-    margin-bottom: 0.3em;
-    display: flex;
-    justify-content: space-between;
-}
-
-.eachComment .inputValue{
-    font-size: 1.2em;
-    font-style: italic;    
-}
-
-.eachComment .time{
-    font-size: 0.7em;
-    color: #c1bcba;
-    font-style: oblique;
-    margin-top: 0.5em;
-    margin-bottom: 0.5em;
-    
-}
-
-.eachComment .voteDiv{
-    display: flex;
-    justify-content: flex-end;
-}
-
-.eachComment .deleteComment{
-    background-color: red;
-    color: aliceblue;
-} 
-
-.coments{
-    display: flex;
-}
