@@ -14,4 +14,10 @@ public class LectureService {
 		List<LectureVO> lecturesList = lectureDAO.selectAllLectures();
 		return lecturesList;
 	}
+	
+	public LectureVO infoLecture(int lkey)
+	{
+		LectureVO infoLecture = lectureDAO.infoLecture(lkey);
+		return infoLecture;
+	}
 }

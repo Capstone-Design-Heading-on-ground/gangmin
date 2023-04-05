@@ -57,8 +57,14 @@ public class LectureController extends HttpServlet {
 				nextPage = "/index.jsp";
 				RequestDispatcher dispatch = request.getRequestDispatcher("/index.jsp");
 				dispatch.forward(request, response);
+			}else if(action.equals("/connectLecture")) {
+				int lkey = Integer.parseInt(request.getParameter("lkey"));
+				lectureVO = lectureService.infoLecture(lkey);
+				
+				System.out.println(lkey);
+			}else {
+				System.out.println(action);
 			}
-			
 			
 		} catch(Exception e) {
 			System.out.println("error");
