@@ -13,9 +13,9 @@
 ![develop-4.png](./images/develop-4.png)
 #### 5. URI에 레포지토리 주소 입력
 ![develop-5.png](./images/develop-5.png)
-```
-비밀번호 대신 토큰을 발급받아서 사용할 것
-```
+
+* 비밀번호 대신 토큰을 발급받아서 사용할 것
+
 #### 6. Next >
 ![develop-6.png](./images/develop-6.png)
 #### 7. Finish
@@ -56,13 +56,14 @@
 
 ### 2. DataBase 설정
 #### 1. DataBase 설치
-	https://www.oracle.com/database/technologies/xe-prior-release-downloads.html
+https://www.oracle.com/database/technologies/xe-prior-release-downloads.html
 #### 2. DataBase 환경설정
-	https://cmleo.tistory.com/19
+https://cmleo.tistory.com/19
 ### 2-1. sqldeveloper 설치
-	https://www.oracle.com/database/sqldeveloper/technologies/download/
+https://www.oracle.com/database/sqldeveloper/technologies/download/
 #### 3. Oracle 접속 후 TABEL 생성
 ![develop-26.png](./images/develop-26.png)
+
 ```
 CREATE TABLE MEMBER(
  mkey NUMBER(8) PRIMARY KEY,
@@ -78,6 +79,7 @@ CREATE TABLE MEMBER(
  madmin NUMBER(1)
 );
 ```
+
 #### 4. SEQUENCE 생성
 ```
 CREATE SEQUENCE tmp_seq START WITH 1 INCREMENT BY 1 MAXVALUE 100 CYCLE NOCACHE;
@@ -88,21 +90,22 @@ CREATE SEQUENCE tmp_seq START WITH 1 INCREMENT BY 1 MAXVALUE 100 CYCLE NOCACHE;
 ![develop-28.png](./images/develop-28.png)
 #### 7. Source 탭 맨 밑쪽에 다음과 같은 코드 추가
 ![develop-29.png](./images/develop-29.png)
+
 ```
-    <Resource
-        name="jdbc/oracle"
-        auth="Container"
-        type="javax.sql.DataSource"
-        driverClassName="oracle.jdbc.driver.OracleDriver"
-        url="jdbc:oracle:thin:@localhost:1521:XE"
-        username="scott"
-        password="tiger"
-        maxActive="50"
-        maxWait="-1"
-     />
+<Resource
+	name="jdbc/oracle"
+    auth="Container"
+    type="javax.sql.DataSource"
+    driverClassName="oracle.jdbc.driver.OracleDriver"
+    url="jdbc:oracle:thin:@localhost:1521:XE"
+    username="scott"
+    password="tiger"
+    maxActive="50"
+    maxWait="-1"
+/>
 ```
-	username과 password는 환경설정때 자신이 사용했던 계정정보 입력
-```
+ * username과 password는 환경설정때 자신이 사용했던 계정정보 입력
+
 ## DB QUERY문
 ### 1. Lecture Table
 ```
@@ -344,8 +347,8 @@ COMMENT에는 문제 해결의 키, 주요 개념 등이
 ## DB QUERY문
 ### 1. Coment Table
 
-
-	CREATE TABLE COMENT(
+```
+CREATE TABLE COMENT(
  ckey NUMBER(8) PRIMARY KEY,
  ccontent VARCHAR2(200) NOT NULL,
  lkey NUMBER(8),
