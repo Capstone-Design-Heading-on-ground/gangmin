@@ -158,7 +158,7 @@
                 				</div>
                 				<div class="div2">
                 					<h3>${lecture.lduration}개월 / ${lecture.lprice}원</h3>
-                					<input type="button" value="후기 보러가기">
+                					<input type="button" onclick="location.href='${contextPath}/lecture/connectLecture?lkey=${lecture.lkey}'" value="후기 보러가기">
                 				</div>
                 			</div>
                 		</c:forEach>
