@@ -66,7 +66,7 @@ public class LectureDAO {
 		LectureVO lectureVO = new LectureVO();
 		try {
 			conn = dataFactory.getConnection();
-			String query = "SELECT * FROM LECTURE WHRER LKEY = ?";
+			String query = "SELECT * FROM LECTURE WHERE LKEY = ?";
 			
 			pstmt = conn.prepareStatement(query);
 			pstmt.setInt(1, inputlkey);
@@ -91,7 +91,7 @@ public class LectureDAO {
 				String ltarget = rs.getString("LTARGET");
 				String limage = rs.getString("LIMAGE");
 				Date lstartdate = rs.getDate("LSTARTDATE");
-				int lsumgrade = rs.getInt("LSUMGRAGE");
+				int lsumgrade = rs.getInt("LSUMGRADE");
 				int lcountgrade = rs.getInt("LCOUNTGRADE");
 				String lacademy = rs.getString("LACADEMY");
 				lectureVO.setLkey(lkey);
