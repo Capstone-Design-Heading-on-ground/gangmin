@@ -102,7 +102,7 @@ CREATE SEQUENCE tmp_seq START WITH 1 INCREMENT BY 1 MAXVALUE 100 CYCLE NOCACHE;
      />
 ```
 	username과 password는 환경설정때 자신이 사용했던 계정정보 입력
-
+```
 ## DB QUERY문
 ### 1. Lecture Table
 ```
@@ -340,4 +340,25 @@ COMMENT에는 문제 해결의 키, 주요 개념 등이
 아직 출제되지 않은 새로운 요소까지 경험할 수 있을 것입니다.'
 ,'수능에서 고득점을 받고 싶은 수험생'
 ,'huj.jpg','2018-05-01',0,0,'메가스터디')
+```
+## DB QUERY문
+### 1. Coment Table
+```
+	CREATE TABLE COMENT(
+ ckey NUMBER(8) PRIMARY KEY,
+ ccontent VARCHAR2(200) UNIQUE NOT NULL,
+ lkey NUMBER(8),
+ mkey NUMBER(8),
+ crecommend NUMBER(8),
+ cdate DATE default sysdate,
+ cscore NUMBER(4) NOT NULL,
+ FOREIGN KEY(lkey)
+ REFERENCES LECTURE (lkey) ON DELETE CASCADE,
+ FOREIGN KEY(mkey)
+ REFERENCES MEMBER (mkey) ON DELETE CASCADE
+);
+```
+### 2. Coment SEQUENCE
+```
+	CREATE SEQUENCE com_seq START WITH 1 INCREMENT BY 1 MAXVALUE 1000 CYCLE NOCACHE;
 ```
