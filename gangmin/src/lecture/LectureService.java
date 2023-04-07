@@ -15,9 +15,24 @@ public class LectureService {
 		return lecturesList;
 	}
 	
+	public List<LectureVO> searchLectures(String search)
+	{
+		System.out.println("lecture service");
+		List<LectureVO> lecturesList = lectureDAO.searchAllLectures(search);
+		return lecturesList;
+	}
+	
+	public List<LectureVO> lowpriceLectures()
+	{
+		System.out.println("low price service");
+		List<LectureVO> lecturesList = lectureDAO.lowpriceLectures();
+		return lecturesList;
+  }
+  
 	public LectureVO infoLecture(int lkey)
 	{
 		LectureVO infoLecture = lectureDAO.infoLecture(lkey);
 		return infoLecture;
 	}
+  
 }

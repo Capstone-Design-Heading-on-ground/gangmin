@@ -62,7 +62,88 @@ public class LectureDAO {
 		return lecturesList;
 	}
 	
-	public LectureVO infoLecture(int inputlkey) {
+	public List<LectureVO> searchAllLectures(String search)
+	{
+		System.out.println("lecture dao");
+		List<LectureVO> lecturesList = new ArrayList();
+		System.out.println(search);
+		try
+		{
+			conn = dataFactory.getConnection();
+			String query = "SELECT * FROM LECTURE WHERE LID like '%"+search+"%' ";
+			pstmt = conn.prepareStatement(query);
+			ResultSet rs = pstmt.executeQuery();
+			while(rs.next()) {
+				int lkey = rs.getInt("LKEY");
+				String lid = rs.getString("LID");
+				int lprice = rs.getInt("LPRICE");
+				int lduration = rs.getInt("LDURATION");
+				String limage = rs.getString("LIMAGE");
+				int lsumgrade = rs.getInt("LSUMGRADE");
+				int lcountgrade = rs.getInt("LCOUNTGRADE");
+				LectureVO lecture = new LectureVO();
+				lecture.setLkey(lkey);
+				lecture.setLid(lid);
+				lecture.setLprice(lprice);
+				lecture.setLduration(lduration);
+				lecture.setLimage(limage);
+				lecture.setLsumgrade(lsumgrade);
+				lecture.setLcountgrade(lcountgrade);
+				lecturesList.add(lecture);
+				System.out.println(lid);
+			}
+			rs.close();
+			pstmt.close();
+			conn.close();
+		}catch(Exception e)
+		{
+			e.printStackTrace();
+			System.out.println("error2");
+		}
+		return lecturesList;
+	}
+	
+	public List<LectureVO> lowpriceLectures()
+	{
+		System.out.println("lecture dao");
+		List<LectureVO> lecturesList = new ArrayList();
+		try
+		{
+			conn = dataFactory.getConnection();
+			String query = "SELECT * FROM LECTURE ORDER BY LPRICE ASC";
+			pstmt = conn.prepareStatement(query);
+			ResultSet rs = pstmt.executeQuery();
+			while(rs.next()) {
+				int lkey = rs.getInt("LKEY");
+				String lid = rs.getString("LID");
+				int lprice = rs.getInt("LPRICE");
+				int lduration = rs.getInt("LDURATION");
+				String limage = rs.getString("LIMAGE");
+				int lsumgrade = rs.getInt("LSUMGRADE");
+				int lcountgrade = rs.getInt("LCOUNTGRADE");
+				LectureVO lecture = new LectureVO();
+				lecture.setLkey(lkey);
+				lecture.setLid(lid);
+				lecture.setLprice(lprice);
+				lecture.setLduration(lduration);
+				lecture.setLimage(limage);
+				lecture.setLsumgrade(lsumgrade);
+				lecture.setLcountgrade(lcountgrade);
+				lecturesList.add(lecture);
+				System.out.println(lid);
+			}
+			rs.close();
+			pstmt.close();
+			conn.close();
+		}catch(Exception e)
+		{
+			e.printStackTrace();
+			System.out.println("error2");
+		}
+		return lecturesList;
+   }
+
+		public LectureVO infoLecture(int inputlkey) {
 		LectureVO lectureVO = new LectureVO();
 		try {
 			conn = dataFactory.getConnection();
@@ -113,11 +194,6 @@ public class LectureDAO {
 				lectureVO.setLsumgrade(lsumgrade);
 				lectureVO.setLcountgrade(lcountgrade);
 				lectureVO.setLacademy(lacademy);
-			}
-			rs.close();
-			pstmt.close();
-			conn.close();
-			
 		}catch(Exception e) {
 			e.printStackTrace();
 		}
