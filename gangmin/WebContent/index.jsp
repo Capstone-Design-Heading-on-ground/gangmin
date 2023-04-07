@@ -31,9 +31,11 @@
             <img src="${contextPath}/images/logo.png" style="height:150px;">
         </div>
         <div id="top_middle">
+        	<form name = "frmsearch">
             <div id="search">
-                <input type="text" id="search" placeholder="검색어를 입력해주세요.">
+                <input type="text" id="searchlecture" onkeypress="findlecture(event)" placeholder="검색어를 입력해주세요." name="findl">
             </div>
+            </form>
             <div id="nav">
                 <ul>
                     <li><a><b>카테고리 검색</b></a></li>
@@ -128,18 +130,20 @@
                         </div>
                     </div>
                 </div>
+                <form name = "frmcate">
                 <div id="sort">
                     <input type="radio" name="do_sort" id="toggle1" value="r1" checked="checked"/>
                     <label for="toggle1"><li>인기강의순</li></label>
                     <input type="radio" name="do_sort" id="toggle2" value="r2"/>
                     <label for="toggle2"><li>신규강의순</li></label>
                     <input type="radio" name="do_sort" id="toggle3" value="r3"/>
-                    <label for="toggle3"><li>낮은가격순</li></label>
+                    <label for="toggle3" onclick="togglecon1()"><li>낮은가격순</li></label>
                     <input type="radio" name="do_sort" id="toggle4" value="r4"/>
                     <label for="toggle4"><li>높은가격순</li></label>
                     <input type="radio" name="do_sort" id="toggle5" value="r5"/>
                     <label for="toggle5"><li>강의명순</li></label>                                 
                 </div>
+                </form>
                 <input type="button" value="결과 내 검색" id="search3" onclick="doSearch()">
                 <c:choose>
                 	<c:when test="${empty lecturesList }">
@@ -198,5 +202,7 @@
         </div>
     </div>
 </body>
+<script src="${contextPath}/js/event.js"></script>
+<script src="${contextPath}/js/search.js"></script>
 <script src="js/script.js"></script>
 </html>

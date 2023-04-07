@@ -104,8 +104,7 @@ public class MemberServlet extends HttpServlet {
 			nextPage = request.getContextPath() + "/member/logout";
 			response.sendRedirect(nextPage);
 			
-		}
-		else {
+		}else{
 			
 		}
 			//nextPage = request.getContextPath() + "/login.jsp" + "?create=success";

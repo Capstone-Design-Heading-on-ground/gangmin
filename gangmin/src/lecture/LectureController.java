@@ -46,6 +46,7 @@ public class LectureController extends HttpServlet {
 		String action = request.getPathInfo();	
 		try {
 			List<LectureVO> lecturesList = new ArrayList<LectureVO>();
+
 			
 			if(action == null) {
 				lecturesList = lectureService.listLectures();
@@ -57,11 +58,26 @@ public class LectureController extends HttpServlet {
 				nextPage = "/index.jsp";
 				RequestDispatcher dispatch = request.getRequestDispatcher("/index.jsp");
 				dispatch.forward(request, response);
+			}else if(action.equals("/searchLecture.do"))
+			{
+				System.out.println("lecture controller");
+				String searchlec = request.getParameter("findl");
+				System.out.println(searchlec);
+				lecturesList = lectureService.searchLectures(searchlec);
+				request.setAttribute("lecturesList", lecturesList);
+				RequestDispatcher dispatch = request.getRequestDispatcher("/index.jsp");
+				dispatch.forward(request, response);
+			}else if(action.equals("/lowprice.do"))
+			{
+				System.out.println("low price event");
+				lecturesList = lectureService.lowpriceLectures();
+				request.setAttribute("lecturesList", lecturesList);
+				RequestDispatcher dispatch = request.getRequestDispatcher("/index.jsp");
+				dispatch.forward(request, response);
 			}
 			
-			
 		} catch(Exception e) {
-			System.out.println("error");
+			System.out.println("error1");
 			e.printStackTrace();
 		}
 	}
