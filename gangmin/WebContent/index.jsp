@@ -28,7 +28,9 @@
     <div id="wrap">
     <div id="top">
         <div id="top_left">
-            <img src="${contextPath}/images/logo.png" style="height:150px;">
+           <a href="${contextPath}/lecture/listLectures.do">
+           <img src="${contextPath}/images/logo.png" style="height:150px;">
+           </a>
         </div>
         <div id="top_middle">
         	<form name = "frmsearch">
@@ -156,13 +158,15 @@
                 			<div class="classes">
                 				<img class="profile" src="${contextPath}/images/${lecture.limage}">
                 				<div class="div1">
+                					<a href="${contextPath}/lecture/connectLecture?lkey=${lecture.lkey}">
                 					<h2>${lecture.lid}</h2>
+                					</a>
                 					<img class="star" src="${contextPath}/images/star.png">
                 					<b>${lecture.lsumgrade}</b>(${lecture.lcountgrade})
                 				</div>
                 				<div class="div2">
                 					<h3>${lecture.lduration}개월 / ${lecture.lprice}원</h3>
-                					<input type="button" value="후기 보러가기">
+                					<input type="button" onclick="location.href='${contextPath}/lecture/connectLecture?lkey=${lecture.lkey}'" value="후기 보러가기">
                 				</div>
                 			</div>
                 		</c:forEach>
