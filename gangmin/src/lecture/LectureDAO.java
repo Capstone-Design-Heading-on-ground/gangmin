@@ -143,7 +143,7 @@ public class LectureDAO {
 		return lecturesList;
    }
 
-		public LectureVO infoLecture(int inputlkey) {
+	public LectureVO infoLecture(int inputlkey) {
 		LectureVO lectureVO = new LectureVO();
 		try {
 			conn = dataFactory.getConnection();
@@ -194,6 +194,7 @@ public class LectureDAO {
 				lectureVO.setLsumgrade(lsumgrade);
 				lectureVO.setLcountgrade(lcountgrade);
 				lectureVO.setLacademy(lacademy);
+			}
 		}catch(Exception e) {
 			e.printStackTrace();
 		}
