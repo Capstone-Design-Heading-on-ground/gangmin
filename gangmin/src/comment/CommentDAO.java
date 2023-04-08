@@ -70,18 +70,16 @@ public class CommentDAO {
 			String ccontent = c.getCcontent();
 			int lkey = c.getLkey();
 			int mkey = c.getMkey();
-			int crecommend = c.getCrecommend();
 			float cscore = c.getCscore();
 			
-			String query = "INSERT INTO COMENT(CKEY, CCONTENT, LKEY, MKEY, CRECOMMEND, CSCORE)" +
-						   " VALUES(com_seq.nextVAL, ?, ?, ?, ?, ?, ?";
+			String query = "INSERT INTO COMENT(CKEY, CCONTENT, LKEY, MKEY, CSCORE)" +
+						   " VALUES(com_seq.nextVAL, ?, ?, ?, ?)";
 			
 			pstmt = conn.prepareStatement(query);
 			pstmt.setString(1, ccontent);
 			pstmt.setInt(2, lkey);
 			pstmt.setInt(3, mkey);
-			pstmt.setInt(4, crecommend);
-			pstmt.setFloat(5, cscore);
+			pstmt.setFloat(4, cscore);
 			pstmt.executeUpdate();
 			pstmt.close();
 			conn.close();
