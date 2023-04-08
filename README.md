@@ -127,7 +127,7 @@ CREATE SEQUENCE tmp_seq START WITH 1 INCREMENT BY 1 MAXVALUE 100 CYCLE NOCACHE;
     ltarget VARCHAR2(100),
     limage VARCHAR2(255),
     lstartdate DATE,
-    lsumgrade NUMBER(10),
+    lsumgrade NUMBER(10,2),
     lcountgrade NUMBER(8),
     lacademy VARCHAR2(45)
 );
@@ -314,7 +314,7 @@ CREATE TABLE COMENT(
  mkey NUMBER(8),
  crecommend NUMBER(8),
  cdate DATE default sysdate,
- cscore NUMBER(4) NOT NULL,
+ cscore NUMBER(2,2) NOT NULL,
  FOREIGN KEY(lkey)
  REFERENCES LECTURE (lkey) ON DELETE CASCADE,
  FOREIGN KEY(mkey)
