@@ -12,6 +12,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import comment.*;
+
 /**
  * Servlet implementation class LectureController
  */
@@ -22,12 +24,16 @@ public class LectureController extends HttpServlet {
 	LectureService lectureService;
 	LectureVO lectureVO;
 	
+	CommentService commentService;
+	CommentVO commentVO;
+	
 	/**
 	 * @see Servlet#init(ServletConfig)
 	 */
 	public void init(ServletConfig config) throws ServletException {
 		//super.init(config);
 		lectureService = new LectureService();
+		commentService = new CommentService();
 	}
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -46,7 +52,7 @@ public class LectureController extends HttpServlet {
 		String action = request.getPathInfo();	
 		try {
 			List<LectureVO> lecturesList = new ArrayList<LectureVO>();
-
+			List<CommentVO> commentsList = new ArrayList<CommentVO>();
 			
 			if(action == null) {
 				lecturesList = lectureService.listLectures();
@@ -78,6 +84,8 @@ public class LectureController extends HttpServlet {
 				int lkey = Integer.parseInt(request.getParameter("lkey"));
 				lectureVO = lectureService.infoLecture(lkey);
 				lectureVO.setLinfo(lectureVO.getLinfo().replace("\n", "<br/>"));
+				commentsList = commentService.listComments(lkey);
+				request.setAttribute("commentsList", commentsList);
 				request.setAttribute("infoLecture", lectureVO);
 				RequestDispatcher dispatch = request.getRequestDispatcher("/lecture_info.jsp");
 				dispatch.forward(request, response);
