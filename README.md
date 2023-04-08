@@ -314,7 +314,7 @@ CREATE TABLE COMENT(
  mkey NUMBER(8),
  crecommend NUMBER(8),
  cdate DATE default sysdate,
- cscore NUMBER(2,2) NOT NULL,
+ cscore NUMBER(2,1) NOT NULL,
  FOREIGN KEY(lkey)
  REFERENCES LECTURE (lkey) ON DELETE CASCADE,
  FOREIGN KEY(mkey)
