@@ -136,11 +136,19 @@ CREATE SEQUENCE tmp_seq START WITH 1 INCREMENT BY 1 MAXVALUE 100 CYCLE NOCACHE;
 ```
 	CREATE SEQUENCE lec_seq START WITH 1 INCREMENT BY 1 MAXVALUE 1000 CYCLE NOCACHE;
 ```
+### 2-1. LECUTRE FUNCTION
+```
+	CREATE FUNCTION get_seq RETURN NUMBER IS
+BEGIN
+    RETURN LEC_SEQ.NEXTVAL;
+END;
+```
 ### 3. Lecture Table 기본 정보
 ```
-INSERT INTO LECTURE(LKEY, LID, LNAME, LTYPE, LCONST, LSUBJECT, LUNIT, LUSER, LCREATE, LLEVEL
+	INSERT ALL
+INTO LECTURE(LKEY, LID, LNAME, LTYPE, LCONST, LSUBJECT, LUNIT, LUSER, LCREATE, LLEVEL
 , LTIME,LPRICE, LDURATION, LINFO, LTARGET, LIMAGE, LSTARTDATE, LSUMGRADE, LCOUNTGRADE, LACADEMY)
- VALUES(LEC_SEQ.nextval, '한석원의 4의규칙', '한석원', '수능', '12강 / 완강', '수학','수학I','고3, N수'
+    VALUES(GET_SEQ, '한석원의 4의규칙', '한석원', '수능', '12강 / 완강', '수학','수학I','고3, N수'
  ,'스튜디오','문제풀이',48,100000,1
  ,'4의 규칙은 22, 30번 문항을 제외한 4점 문항을 집요하게 훈련하여
 어떤 문제라도 망설임 없이 교과서가 제시한 방법으로 풀어내게 하는 강좌입니다.
@@ -183,9 +191,9 @@ SEASON 1 : 22,30번을 제외한 모든 4점 문항 대비
 3. 비교: 3가지 평가항목에 해당하지 않는 경우 강의를 통해 한석원 선생님과 비교합니다.'
 ,'4점 난이도를 훈련하고 싶은 수험생을 위한 강좌입니다.'
 ,'hsw.jpg','2018-03-01',0,0,'대성마이맥')
-INSERT INTO LECTURE(LKEY, LID, LNAME, LTYPE, LCONST, LSUBJECT, LUNIT, LUSER, LCREATE, LLEVEL
+INTO LECTURE(LKEY, LID, LNAME, LTYPE, LCONST, LSUBJECT, LUNIT, LUSER, LCREATE, LLEVEL
 , LTIME,LPRICE, LDURATION, LINFO, LTARGET, LIMAGE, LSTARTDATE, LSUMGRADE, LCOUNTGRADE, LACADEMY)
-	VALUES(LEC_SEQ.nextval, '2023 현우진의 드릴 - 수학I(공통)', '현우진', '수능', '각 85분씩, 총 8강', '수학','수학I','고3, N수'
+VALUES(GET_SEQ, '2023 현우진의 드릴 - 수학I(공통)', '현우진', '수능', '각 85분씩, 총 8강', '수학','수학I','고3, N수'
  ,'스튜디오','문제풀이',45,60000,1
  ,'수학l은 공통과목일 뿐만 아니라 수능에 직접 출제되는 첫 번째 과목으로 
 다루는 내용의 난이도는 어렵지 않지만, 많은 학생들이 쉽게 간과하는 과목입니다. 
@@ -232,9 +240,9 @@ COMMENT에는 문제 해결의 키, 주요 개념 등이
 드릴은 실전 훈련을 위해 정교하게 설계된 문항을 제공합니다.'
 ,'수능에서 고득점을 받고 싶은 수험생'
 ,'huj.jpg','2018-05-01',0,0,'메가스터디')
-INSERT INTO LECTURE(LKEY, LID, LNAME, LTYPE, LCONST, LSUBJECT, LUNIT, LUSER, LCREATE, LLEVEL
+INTO LECTURE(LKEY, LID, LNAME, LTYPE, LCONST, LSUBJECT, LUNIT, LUSER, LCREATE, LLEVEL
 , LTIME,LPRICE, LDURATION, LINFO, LTARGET, LIMAGE, LSTARTDATE, LSUMGRADE, LCOUNTGRADE, LACADEMY)
-	VALUES(LEC_SEQ.nextval, '2023 현우진의 드릴 - 수학II(공통)', '현우진', '수능', '각 75분씩, 총 10강', '수학','수학II','고3, N수'
+    VALUES(GET_SEQ, '2023 현우진의 드릴 - 수학II(공통)', '현우진', '수능', '각 75분씩, 총 10강', '수학','수학II','고3, N수'
  ,'스튜디오','문제풀이',50,69000,1
  ,'공통과목 중에서도 킬러의 출제 가능성 및 중요도뿐만 아니라 난도 또한 높은 과목입니다. 
 최근 평가원 시험지는 ‘까다로운 준킬러 문항 + 해볼 만한 킬러 문항’으로 구성되고 있으며,
@@ -295,11 +303,9 @@ COMMENT에는 문제 해결의 키, 주요 개념 등이
 드릴 강좌를 통해 기존의 익숙한 아이디어를 체화하는 것과 함께 
 아직 출제되지 않은 새로운 요소까지 경험할 수 있을 것입니다.'
 ,'수능에서 고득점을 받고 싶은 수험생'
-,'huj.jpg','2018-05-01',0,0,'메가스터디')
+,'huj.jpg','2018-05-01',0,0,'메가스터디') SELECT * FROM DUAL;
 ```
-## DB QUERY문
-### 1. Coment Table
-
+### 1. Coment TABLE
 ```
 CREATE TABLE COMENT(
  ckey NUMBER(8) PRIMARY KEY,
@@ -314,6 +320,7 @@ CREATE TABLE COMENT(
  FOREIGN KEY(mkey)
  REFERENCES MEMBER (mkey) ON DELETE CASCADE
 );
+
 ```
 ### 2. Coment SEQUENCE
 ```
