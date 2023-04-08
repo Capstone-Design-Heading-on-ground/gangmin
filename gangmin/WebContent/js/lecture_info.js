@@ -1,4 +1,6 @@
 document.addEventListener('DOMContentLoaded', function(){
+	let frmreview = document.reviewform;
+	
     //별점선택 이벤트 리스너
     document.querySelector('.rating').addEventListener('click',function(e){
         let elem = e.target;
@@ -32,10 +34,20 @@ document.addEventListener('DOMContentLoaded', function(){
         }
         //폼 서밋
 		//실제로는 서버에 폼을 전송하고 완료 메시지가 표시되지만 저장된 것으로 간주하고 폼을 초기화 함.
-		alert("저장완료!");
 		rating.setRate(0);
+		frmreview.method = "post";
+		frmreview.action = "/gangmin/comment/addComment";
+		frmreview.submit();
 		document.querySelector('.review_textarea').value = '';
     });
+    
+   document.querySelector('#isnot_Logon').addEventListener('click', function(e){
+	   //로그인이 안되있을시
+	   alert(`리뷰작성은 로그인 후 이용 가능합니다.`);
+	   frmreview.method = "post";
+	   frmreview.action = "/gangmin/login.jsp";
+	   frmreview.submit();
+   });
 });
 
 
@@ -45,7 +57,7 @@ Rating.prototype.rate = 0;
 Rating.prototype.setRate = function(newrate){
     //별점 마킹 - 클릭한 별 이하 모든 별 체크 처리
     this.rate = newrate;
-    document.querySelector('.ratefill').style.width = parseInt(newrate * 60) + 'px';
+    //document.querySelector('.ratefill').style.width = parseInt(newrate * 60) + 'px';
     let items = document.querySelectorAll('.rate_radio');
     items.forEach(function(item, idx){
         if(idx < newrate){
