@@ -41,7 +41,7 @@ public class LectureDAO {
 				int lprice = rs.getInt("LPRICE");
 				int lduration = rs.getInt("LDURATION");
 				String limage = rs.getString("LIMAGE");
-				int lsumgrade = rs.getInt("LSUMGRADE");
+				float lsumgrade = rs.getFloat("LSUMGRADE");
 				int lcountgrade = rs.getInt("LCOUNTGRADE");
 				LectureVO lecture = new LectureVO();
 				lecture.setLkey(lkey);
@@ -79,7 +79,7 @@ public class LectureDAO {
 				int lprice = rs.getInt("LPRICE");
 				int lduration = rs.getInt("LDURATION");
 				String limage = rs.getString("LIMAGE");
-				int lsumgrade = rs.getInt("LSUMGRADE");
+				float lsumgrade = rs.getFloat("LSUMGRADE");
 				int lcountgrade = rs.getInt("LCOUNTGRADE");
 				LectureVO lecture = new LectureVO();
 				lecture.setLkey(lkey);
@@ -119,7 +119,7 @@ public class LectureDAO {
 				int lprice = rs.getInt("LPRICE");
 				int lduration = rs.getInt("LDURATION");
 				String limage = rs.getString("LIMAGE");
-				int lsumgrade = rs.getInt("LSUMGRADE");
+				float lsumgrade = rs.getFloat("LSUMGRADE");
 				int lcountgrade = rs.getInt("LCOUNTGRADE");
 				LectureVO lecture = new LectureVO();
 				lecture.setLkey(lkey);
@@ -172,7 +172,7 @@ public class LectureDAO {
 				String ltarget = rs.getString("LTARGET");
 				String limage = rs.getString("LIMAGE");
 				Date lstartdate = rs.getDate("LSTARTDATE");
-				int lsumgrade = rs.getInt("LSUMGRADE");
+				float lsumgrade = rs.getFloat("LSUMGRADE");
 				int lcountgrade = rs.getInt("LCOUNTGRADE");
 				String lacademy = rs.getString("LACADEMY");
 				lectureVO.setLkey(lkey);

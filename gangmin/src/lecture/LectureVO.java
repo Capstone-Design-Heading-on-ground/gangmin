@@ -20,7 +20,7 @@ public class LectureVO {
 	private String ltarget;
 	private String limage;
 	private Date lstartdate;
-	private int lsumgrade;
+	private float lsumgrade;
 	private int lcountgrade;
 	private String lacademy;
 	
@@ -188,11 +188,11 @@ public class LectureVO {
 		this.lstartdate = lstartdate;
 	}
 	
-	public int getLsumgrade() {
+	public float getLsumgrade() {
 		return lsumgrade;
 	}
 	
-	public void setLsumgrade(int lsumgrade) {
+	public void setLsumgrade(float lsumgrade) {
 		this.lsumgrade = lsumgrade;
 	}
 	
