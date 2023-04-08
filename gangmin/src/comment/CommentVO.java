@@ -11,6 +11,15 @@ public class CommentVO {
 	private Date cdate;
 	private float cscore;
 	
+	public CommentVO() {};
+	
+	public CommentVO(String ccontent, int lkey, int mkey, float cscore) {
+		this.ccontent = ccontent;
+		this.lkey = lkey;
+		this.mkey = mkey;
+		this.cscore = cscore;
+	}
+	
 	public int getCkey() {
 		return ckey;
 	}
