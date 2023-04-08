@@ -7,21 +7,22 @@
 <%
 	request.setCharacterEncoding("UTF-8");
 	String isLogon = null;
+	int mkey = 0;
 	
 	if(session.getAttribute("mkey")!=null){
-		int mkey = ((Integer)(session.getAttribute("mkey"))).intValue();
+		mkey = ((Integer)(session.getAttribute("mkey"))).intValue();
 	 	String mnickname = (String)session.getAttribute("mnickname");
 	 	isLogon = mnickname;
 	}
 %>
 <c:set var="isLogon" value="<%=isLogon %>" />
+<c:set var="mkey" value="<%=mkey %>"/>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
     <title>강의의 민족 강민</title>
     <link rel="stylesheet" href="${contextPath}/css/productPage2.css">
-    <script type="text/javascript" src="${contextPath}/js/lecture_info.js"></script>
 </head>    
 <body>
     <div id="wrap">
@@ -228,17 +229,37 @@
                 <span class="rating">
                     ★★★★★
                     <span>★★★★★</span>
-                    <input type="range" class="rate_radio" oninput="drawStar(this)" value="1" step="1" min="0" max="10">
+                    <input type="range" class="rate_radio" oninput="drawStar(this)" value="1" step="1" min="0" max="10" name="cscore">
                 </span>
             </div>
             <div class="review_contents">
                 <div class="warning_msg">5자 이상의 리뷰 내용을 작성해 주세요.</div>
-                <textarea rows="10" class="review_textarea"></textarea>
+                <textarea rows="10" class="review_textarea" name="ccontent" id="ccontent"></textarea>
             </div>   
             <div class="cmd">
-                <input type="button" name="save" id="save" value="등록">
+            	<c:choose>
+            		<c:when test="${empty isLogon}">
+            			<input type="button" name="isnot_Logon" id="isnot_Logon" value="등록">
+            			<input type="button" name="save" id="save" value="등록" style="display:none">
+            		</c:when>
+            		<c:otherwise>
+            			<input type="hidden" name="mkey" value="${mkey}" />
+            			<input type="hidden" name="lkey" value="${infoLecture.lkey}" />
+            			<input type="button" name="isnot_Logon" id="isnot_Logon" value="등록" style="display:none">
+                		<input type="button" name="save" id="save" value="등록">
+                	</c:otherwise>
+                </c:choose>
             </div>
         </form>
+        <table id="coments">
+        	<tr>
+        		<td></td><td></td><td></td>
+        	</tr>
+        	<tr>
+        		<td colspan="3">
+        	</tr>
+        </table>
     </div>
 </body>
+<script type="text/javascript" src="${contextPath}/js/lecture_info.js"></script>
 </html>
