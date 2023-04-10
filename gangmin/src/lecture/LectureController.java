@@ -80,7 +80,17 @@ public class LectureController extends HttpServlet {
 				request.setAttribute("lecturesList", lecturesList);
 				RequestDispatcher dispatch = request.getRequestDispatcher("/index.jsp");
 				dispatch.forward(request, response);
-			}else if(action.equals("/connectLecture")) {
+			}
+			else if(action.equals("/highprice.do"))
+			{
+				System.out.println("high price event");
+				lecturesList = lectureService.highpriceLectures();
+				request.setAttribute("lecturesList", lecturesList);
+				RequestDispatcher dispatch = request.getRequestDispatcher("/index.jsp");
+				dispatch.forward(request, response);
+			}
+			
+			else if(action.equals("/connectLecture")) {
 				int lkey = Integer.parseInt(request.getParameter("lkey"));
 				lectureVO = lectureService.infoLecture(lkey);
 				lectureVO.setLinfo(lectureVO.getLinfo().replace("\n", "<br/>"));

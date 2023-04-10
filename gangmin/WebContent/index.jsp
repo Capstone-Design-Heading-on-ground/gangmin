@@ -141,7 +141,7 @@
                     <input type="radio" name="do_sort" id="toggle3" value="r3"/>
                     <label for="toggle3" onclick="togglecon1()"><li>낮은가격순</li></label>
                     <input type="radio" name="do_sort" id="toggle4" value="r4"/>
-                    <label for="toggle4"><li>높은가격순</li></label>
+                    <label for="toggle4" onclick="togglecon2()"><li>높은가격순</li></label>
                     <input type="radio" name="do_sort" id="toggle5" value="r5"/>
                     <label for="toggle5"><li>강의명순</li></label>                                 
                 </div>

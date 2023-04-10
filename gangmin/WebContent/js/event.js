@@ -9,3 +9,12 @@ function togglecon1()
 	frmcate.submit();
 	
 }
+
+function togglecon2()
+{
+	var frmcate = document.frmcate;
+	alert(`high price`);
+	frmcate.method = "post";
+	frmcate.action = "/gangmin/lecture/highprice.do";
+	frmcate.submit();
+}

@@ -28,6 +28,13 @@ public class LectureService {
 		List<LectureVO> lecturesList = lectureDAO.lowpriceLectures();
 		return lecturesList;
   }
+	
+	public List<LectureVO> highpriceLectures()
+	{
+		System.out.println("high price service");
+		List<LectureVO> lecturesList = lectureDAO.highpriceLectures();
+		return lecturesList;
+	}
   
 	public LectureVO infoLecture(int lkey)
 	{
