@@ -34,10 +34,10 @@ document.addEventListener('DOMContentLoaded', function(){
         }
         //폼 서밋
 		//실제로는 서버에 폼을 전송하고 완료 메시지가 표시되지만 저장된 것으로 간주하고 폼을 초기화 함.
-		rating.setRate(0);
 		frmreview.method = "post";
 		frmreview.action = "/gangmin/comment/addComment";
 		frmreview.submit();
+		rating.setRate(0);
 		document.querySelector('.review_textarea').value = '';
     });
     
