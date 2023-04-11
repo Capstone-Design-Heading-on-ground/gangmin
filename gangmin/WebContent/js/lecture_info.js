@@ -93,3 +93,6 @@ let rating = new Rating(); //별점 인스턴스 생성
 const drawStar = (target) => {
     document.querySelector(`.rating span`).style.width = `${target.value * 10}%`;
   }
+function revise() {
+    alert('수정 혹은 삭제하시겠습니까?')
+}
