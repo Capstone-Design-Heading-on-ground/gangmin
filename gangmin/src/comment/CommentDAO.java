@@ -83,6 +83,20 @@ public class CommentDAO {
 			pstmt.setInt(3, mkey);
 			pstmt.setFloat(4, cscore);
 			pstmt.executeUpdate();
+			
+			query = "UPDATE LECTURE SET LSUMGRADE = LSUMGRADE + ?" +
+					" WHERE LKEY = ?";
+			pstmt = conn.prepareStatement(query);
+			pstmt.setFloat(1, cscore);
+			pstmt.setInt(2, lkey);
+			pstmt.executeUpdate();
+			
+			query = "UPDATE LECTURE SET LCOUNTGRADE = LCOUNTGRADE + 1" +
+					" WHERE LKEY = ?";
+			pstmt = conn.prepareStatement(query);
+			pstmt.setInt(1, lkey);
+			pstmt.executeUpdate();
+			
 			pstmt.close();
 			conn.close();
 		}catch(Exception e) {
