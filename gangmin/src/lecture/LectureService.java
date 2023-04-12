@@ -22,12 +22,12 @@ public class LectureService {
 		return lecturesList;
 	}
 	
-	public List<LectureVO> lowpriceLectures()
+	public List<LectureVO> eventpriceLectures(String check)
 	{
-		System.out.println("low price service");
-		List<LectureVO> lecturesList = lectureDAO.lowpriceLectures();
+		System.out.println("event price service");
+		List<LectureVO> lecturesList = lectureDAO.eventpriceLectures(check);
 		return lecturesList;
-  }
+    }
   
 	public LectureVO infoLecture(int lkey)
 	{

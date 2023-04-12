@@ -133,16 +133,20 @@
                     </div>
                 </div>
                 <form name = "frmcate">
-                <div id="sort">
-                    <input type="radio" name="do_sort" id="toggle1" value="r1" checked="checked"/>
+                <div id="sort" name = "sort">
+                    <input type="radio" name="do_sort" id="toggle1" value="sort_pop" checked="checked" onclick="togglecon1(event)"/>
                     <label for="toggle1"><li>인기강의순</li></label>
-                    <input type="radio" name="do_sort" id="toggle2" value="r2"/>
+                    
+                    <input type="radio" name="do_sort" id="toggle2" value="sort_new" onclick="togglecon1(event)"/>
                     <label for="toggle2"><li>신규강의순</li></label>
-                    <input type="radio" name="do_sort" id="toggle3" value="r3"/>
-                    <label for="toggle3" onclick="togglecon1()"><li>낮은가격순</li></label>
-                    <input type="radio" name="do_sort" id="toggle4" value="r4"/>
+                    
+                    <input type="radio" name="do_sort" id="toggle3" value="sort_low" onclick="togglecon1(event)"/>
+                    <label for="toggle3"><li>낮은가격순</li></label>
+                    
+                    <input type="radio" name="do_sort" id="toggle4" value="sort_high" onclick="togglecon1(event)"/>
                     <label for="toggle4"><li>높은가격순</li></label>
-                    <input type="radio" name="do_sort" id="toggle5" value="r5"/>
+                    
+                    <input type="radio" name="do_sort" id="toggle5" value="sort_name" onclick="togglecon1(event)"/>
                     <label for="toggle5"><li>강의명순</li></label>                                 
                 </div>
                 </form>

@@ -104,14 +104,41 @@ public class LectureDAO {
 		return lecturesList;
 	}
 	
-	public List<LectureVO> lowpriceLectures()
+	public List<LectureVO> eventpriceLectures(String check)
 	{
 		System.out.println("lecture dao");
 		List<LectureVO> lecturesList = new ArrayList();
 		try
 		{
+			String query;
+			String sort = "LPRICE";
+			String updown = "DESC";
+			
 			conn = dataFactory.getConnection();
-			String query = "SELECT * FROM LECTURE ORDER BY LPRICE ASC";
+			if(check.equals("sort_low"))
+			{
+				sort = "LPRICE";
+				updown = "ASC";
+			}else if(check.equals("sort_high"))
+			{
+				sort = "LPRICE";
+				updown = "DESC";
+			}else if(check.equals("sort_pop"))
+			{
+				sort = "LCOUNTGRADE";
+				updown = "DESC";
+			}else if(check.equals("sort_new")) {
+				sort = "LSTARTDATE";
+				updown = "DESC";
+			}else if(check.equals("sort_name")) {
+				sort = "LID";
+				updown = "DESC";
+			}
+				 query = "SELECT * FROM LECTURE ORDER BY " + sort + " " + updown;
+		
+				 //query = "SELECT * FROM LECTURE ORDER BY LPRICE DESC";
+			System.out.println(check);
+			System.out.println(query);
 			pstmt = conn.prepareStatement(query);
 			ResultSet rs = pstmt.executeQuery();
 			while(rs.next()) {
@@ -143,7 +170,7 @@ public class LectureDAO {
 		}
 		return lecturesList;
    }
-
+	
 	public LectureVO infoLecture(int inputlkey) {
 		LectureVO lectureVO = new LectureVO();
 		try {
