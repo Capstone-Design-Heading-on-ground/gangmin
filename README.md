@@ -91,7 +91,7 @@ CREATE SEQUENCE tmp_seq START WITH 1 INCREMENT BY 1 MAXVALUE 100 CYCLE NOCACHE;
 #### 7. Source 탭 맨 밑쪽에 다음과 같은 코드 추가
 ![develop-29.png](./images/develop-29.png)
 
-```
+```python
 <Resource
 	name="jdbc/oracle"
     auth="Container"
@@ -103,6 +103,24 @@ CREATE SEQUENCE tmp_seq START WITH 1 INCREMENT BY 1 MAXVALUE 100 CYCLE NOCACHE;
     maxActive="50"
     maxWait="-1"
 />
+```
+* Connection Pull 충돌 안나는 버전(이거 해결한다고 4시간 개지랄함)
+
+```python
+<Resource
+    name="jdbc/oracle"
+    auth="Container"
+    type="javax.sql.DataSource"
+    driverClassName="oracle.jdbc.driver.OracleDriver"
+    url="jdbc:oracle:thin:@localhost:1521:XE"
+    username="scott"
+    password="tiger"
+    maxTotal="50"
+    maxIdle="50"
+    maxWaitMillis="-1"
+    minEvictableIdleTimeMillis="-1"
+    removeAbandonedTimeout="10"
+     />
 ```
  * username과 password는 환경설정때 자신이 사용했던 계정정보 입력
 

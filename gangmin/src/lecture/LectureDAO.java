@@ -15,6 +15,7 @@ public class LectureDAO {
 	private DataSource dataFactory;
 	private Connection conn;
 	private PreparedStatement pstmt;
+	//private ResultSet rs;
 	
 	public LectureDAO() {
 		try {
@@ -234,8 +235,13 @@ public class LectureDAO {
 				lectureVO.setLcountgrade(lcountgrade);
 				lectureVO.setLacademy(lacademy);
 			}
+			rs.close();
+			pstmt.close();
+			conn.close();
 		}catch(Exception e) {
 			e.printStackTrace();
+		}finally {
+			
 		}
 		return lectureVO;
 	}

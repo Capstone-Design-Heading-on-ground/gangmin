@@ -1,6 +1,8 @@
 package comment;
 
 import java.io.IOException;
+
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -48,10 +50,8 @@ public class CommentController extends HttpServlet {
 				commentVO = new CommentVO(ccontent, lkey, mkey, cscore / 2);
 				commentService.addComment(commentVO);
 				
-				System.out.println("ccontent : " + ccontent);
-				System.out.println("lkey : " + lkey);
-				System.out.println("mkey : " + mkey);
-				System.out.println("cscore : " + cscore / 2);
+				nextPage = request.getContextPath() + "/lecture/connectLecture?lkey=" + lkey;
+				response.sendRedirect(nextPage);
 			}
 		}catch(Exception e) {
 			e.printStackTrace();

@@ -41,9 +41,10 @@ public class CommentDAO {
 				String ccontent = rs.getString("CCONTENT");
 				int lkey = rs.getInt("LKEY");
 				int mkey = rs.getInt("MKEY");
-				int crecommend = rs.getInt("CRECOMMENT");
+				int crecommend = rs.getInt("CRECOMMEND");
 				Date cdate = rs.getDate("CDATE");
 				float cscore = rs.getFloat("CSCORE");
+				String mnickname = queryUserNickname(mkey);
 				
 				CommentVO comment = new CommentVO();
 				comment.setCkey(ckey);
@@ -53,6 +54,7 @@ public class CommentDAO {
 				comment.setCrecommend(crecommend);
 				comment.setCdate(cdate);
 				comment.setCscore(cscore);
+				comment.setMnickname(mnickname);
 				commentsList.add(comment);
 			}
 			rs.close();
@@ -81,10 +83,44 @@ public class CommentDAO {
 			pstmt.setInt(3, mkey);
 			pstmt.setFloat(4, cscore);
 			pstmt.executeUpdate();
+			
+			query = "UPDATE LECTURE SET LSUMGRADE = LSUMGRADE + ?" +
+					" WHERE LKEY = ?";
+			pstmt = conn.prepareStatement(query);
+			pstmt.setFloat(1, cscore);
+			pstmt.setInt(2, lkey);
+			pstmt.executeUpdate();
+			
+			query = "UPDATE LECTURE SET LCOUNTGRADE = LCOUNTGRADE + 1" +
+					" WHERE LKEY = ?";
+			pstmt = conn.prepareStatement(query);
+			pstmt.setInt(1, lkey);
+			pstmt.executeUpdate();
+			
 			pstmt.close();
 			conn.close();
 		}catch(Exception e) {
 			e.printStackTrace();
 		}
+	}
+	
+	public String queryUserNickname(int mkey) {
+		String mnickname = null;
+		try {
+			conn = dataFactory.getConnection();
+			String query = "SELECT MNICKNAME FROM MEMBER WHERE MKEY = ?";
+			pstmt = conn.prepareStatement(query);
+			pstmt.setInt(1, mkey);
+			ResultSet rs = pstmt.executeQuery();
+			while(rs.next()) {
+				mnickname = rs.getString("MNICKNAME");
+			}
+			rs.close();
+			pstmt.close();
+			conn.close();
+		}catch(Exception e){
+			e.printStackTrace();
+		}
+		return mnickname;
 	}
 }

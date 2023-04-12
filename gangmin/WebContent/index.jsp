@@ -162,7 +162,7 @@
                 					<h2>${lecture.lid}</h2>
                 					</a>
                 					<img class="star" src="${contextPath}/images/star.png">
-                					<b>${lecture.lsumgrade}</b>(${lecture.lcountgrade})
+                					<b><fmt:formatNumber value="${lecture.lsumgrade / lecture.lcountgrade}" pattern=".00"/></b>(${lecture.lcountgrade})
                 				</div>
                 				<div class="div2">
                 					<h3>${lecture.lduration}개월 / ${lecture.lprice}원</h3>

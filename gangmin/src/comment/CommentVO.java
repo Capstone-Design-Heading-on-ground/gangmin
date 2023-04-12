@@ -10,6 +10,7 @@ public class CommentVO {
 	private int crecommend;
 	private Date cdate;
 	private float cscore;
+	private String mnickname;
 	
 	public CommentVO() {};
 	
@@ -74,6 +75,14 @@ public class CommentVO {
 	
 	public void setCscore(float cscore) {
 		this.cscore = cscore;
+	}
+
+	public String getMnickname() {
+		return mnickname;
+	}
+
+	public void setMnickname(String mnickname) {
+		this.mnickname = mnickname;
 	}
 	
 }

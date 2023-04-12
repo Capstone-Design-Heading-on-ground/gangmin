@@ -22,12 +22,14 @@
 <head>
     <meta charset="UTF-8">
     <title>강의의 민족 강민</title>
-    <link rel="stylesheet" href="${contextPath}/css/productPage2.css">
-</head>    
+    <link rel="stylesheet" href="${contextPath}/css/lecture_info.css">
+    <script type="text/javascript" src="${contextPath}/js/lecture_info.js"></script>
+    
+</head>
 <body>
     <div id="wrap">
-    <div id="top">
-        <div id="top_left">
+        <div id="top">
+            <div id="top_left">
             <a href="${contextPath}/lecture/listLectures.do">
             <img src="${contextPath}/images/logo.png" style="height:150px;">
             </a>
@@ -46,7 +48,7 @@
             </div>
         </div>
         <div id="top_right">
-            <c:choose>
+             <c:choose>
         		<c:when test="${empty isLogon }">
             		<a href="/gangmin/login.jsp"><input type="button" value="로그인" id="login"></a>
             		<a href="/gangmin/signin.jsp"><input type="button" value="회원 가입하기" id="new"></a>
@@ -62,27 +64,27 @@
     <div id="advertise">
         <p id="adfont">지금 수강인증하면 <b>선착순 1,000명 스터디 플래너</b> 지급!</p>
     </div>
-    <br>
-    <div id="main">
-        <img src="${contextPath}/images/${infoLecture.limage}" height="300px;">
-        <div id="info">            
-            <h1>${infoLecture.lid}</h1><br>
-        <h2>강사 : ${infoLecture.lname}</h2>
-        <dl>
-            <dd><strong>강좌유형</strong> : ${infoLecture.ltype}</dd>
-            <dd><strong>강좌구성</strong> : ${infoLecture.lconst}</dd>
-            <dd><strong>수강대상</strong> : ${infoLecture.luser}</dd>
-            <dd><strong>제작방식</strong> : ${infoLecture.lcreate}</dd>
-            <dd><strong>학습단계</strong> : ${infoLecture.llevel}</dd>
-            <dd><strong>수강기간</strong> : ${infoLecture.ltime}시간</dd>
-        </dl>
-        <h2>가격 : ${infoLecture.lduration}개월 / ${infoLecture.lprice}만원</h2>
-        </div>   
-    </div>
-        
+    <div class="content_wrap">
         <div>
-            <table id="classinfo">
-                <caption>
+            <div id="main">
+                <img src="${contextPath}/images/${infoLecture.limage}">
+                <div id="info">            
+                    <h1 style="padding: 0;">${infoLecture.lid}</h1><br>
+                    <h2>강사 : ${infoLecture.lname}</h2>
+                    <dl>
+                        <dd><strong>강좌유형</strong> : ${infoLecture.ltype}</dd>
+            			<dd><strong>강좌구성</strong> : ${infoLecture.lconst}</dd>
+            			<dd><strong>수강대상</strong> : ${infoLecture.luser}</dd>
+           				<dd><strong>제작방식</strong> : ${infoLecture.lcreate}</dd>
+            			<dd><strong>학습단계</strong> : ${infoLecture.llevel}</dd>
+            			<dd><strong>수강기간</strong> : ${infoLecture.ltime}시간</dd>
+                    </dl>
+                    <h2>가격 : ${infoLecture.lduration}개월 / ${infoLecture.lprice}만원</h2>
+                </div>   
+            </div>
+            <div class="classinfo">
+                <table>
+                    <caption>
                     <strong>강좌 정보</strong>
                 </caption>
                 <tr>
@@ -102,120 +104,39 @@
                         <p>${infoLecture.ltarget}</p>
                     </td>
                 </tr>
-            </table>
-        </div>
-        <br>
-        <div class="textbook">
-            <table>
-                <style>
-                    .textbook table, .textbook td{
-                        height: 50px;
-                        border: 1px solid black;
-                        border-collapse: collapse;
-                    }
-                </style>
-                <caption>
-                    <strong>교재 정보</strong>
-                </caption>
-                <tr>
-                    <th rowspan="4"><img src="images/hswbook.png" height="200px"></th>
-                    <td><b>교재명</b></td>
-                    <td><p>[교재][2024] 4의 규칙 SEASON1 - 수학Ⅰ(no.24454)</p></td>
-                </tr>
-                <tr>
-                    <td><b>판매가</b></td>
-                    <td><p style="color: red;">28,000원</p></td>
-                </tr>
-                <tr>
-                    <td><b>교재특징</b></td>
-                    <td><p>22,30 번 을 제외한 4점 문항을 정면 돌파하기 위한 N제!</p></td>
-                </tr>
-                <tr>
-                    <td><b>목차</b></td>
-                    <td><p>1. 지수함수와 로그함수</p>
-                        <p>2. 삼각함수</p>
-                        <p>3. 수열</p>
-                        <p>정답 및 해설</p></td>
-                </tr>
-
-            </table>
+                </table>
+            </div>
         </div>
         <div>
-            <style>
-                .CC tr{
-                    height: 30px;
-                }
-            </style>
-        <table class="CC">
-            <caption>
-                <strong>커리큘럼</strong>
-            </caption>
-            <tr>
-                <th>차시</th>
-                <th>강의명</th>
-                <th>강의시간</th>
-            </tr>
-            <tr>
-                <th>1</th>
-                <td>지수함수와 로그함수 <1-10번></td>
-                <td>42분</td>
-            </tr>
-            <tr>
-                <th>2</th>
-                <td>지수함수와 로그함수 <11-20번></td>
-                <td>46분</td>
-            </tr>
-            <tr>
-                <th>3</th>
-                <td>지수함수와 로그함수 <21-30번></td>
-                <td>46분</td>
-            </tr>
-            <tr>
-                <th>4</th>
-                <td>지수함수와 로그함수 <31-40번></td>
-                <td>51분</td>
-            </tr>
-            <tr>
-                <th>5</th>
-                <td>삼각함수 <1-10번></td>
-                <td>54분</td>
-            </tr>
-            <tr>
-                <th>6</th>
-                <td>삼각함수 <11-18번></td>
-                <td>54분</td>
-            </tr>
-            <tr>
-                <th>7</th>
-                <td>삼각함수 <19-27번></td>
-                <td>42분</td>
-            </tr>
-            <tr>
-                <th>8</th>
-                <td>삼각함수 <28-37번></td>
-                <td>51분</td>
-            </tr>
-            <tr>
-                <th>9</th>
-                <td>수열 <1-11번></td>
-                <td>47분</td>
-            </tr>
-            <tr>
-                <th>10</th>
-                <td>수열 <12-22번></td>
-                <td>74분</td>
-            </tr>
-            <tr>
-                <th>11</th>
-                <td>수열 <23-33번></td>
-                <td>49분</td>
-            </tr>
-            <tr>
-                <th>12</th>
-                <td>수열 <34-45번></td>
-                <td>68분</td>
-            </tr>
-        </table>
+            <div id="onoff">
+                <input type="checkbox" name="do_check" id="onoff_toggle" checked="checked"/>
+                <label for="onoff_toggle">
+                    <li>온라인 강의</li>
+                    <li>오프라인 강의</li>
+                </label>
+            </div>
+            <div id="second">
+                <input type="button" value="찜 목록" id="like">
+                <p>로그인하여 저장한 강의들을 확인해보세요.</p>
+            </div>
+            <div id="exam">
+                <br><br><br>
+                <input type="radio" name="do_exam" id="exam_toggle1" value="e1" checked="checked"/>
+                <label for="exam_toggle1"><p>&nbsp;&nbsp;수능</p></label>
+                <input type="radio" name="do_exam" id="exam_toggle2" value="e2"/>
+                <label for="exam_toggle2"><p>&nbsp;&nbsp;수시</p></label>
+                <input type="radio" name="do_exam" id="exam_toggle3" value="e3"/>
+                <label for="exam_toggle3"><p>&nbsp;&nbsp;공무원</p></label>
+                <input type="radio" name="do_exam" id="exam_toggle4" value="e4"/>
+                <label for="exam_toggle4"><p>&nbsp;&nbsp;자격증</p></label>
+                <input type="radio" name="do_exam" id="exam_toggle5" value="e5"/>
+                <label for="exam_toggle5"><p>&nbsp;&nbsp;편입</p></label>
+                <input type="radio" name="do_exam" id="exam_toggle6" value="e6"/>
+                <label for="exam_toggle6"><p>&nbsp;&nbsp;토익</p></label>
+                <input type="radio" name="do_exam" id="exam_toggle7" value="e7"/>
+                <label for="exam_toggle7"><p>&nbsp;&nbsp;검정고시</p></label>
+            </div>
+        </div>
     </div>
 
     <div class="wrap">
@@ -223,7 +144,7 @@
         <form name="reviewform" class="reviewform" method="post" action="/save">
             <input type="hidden" name="rate" id="rate" value="0"/>
             <p class="title_star">별점과 수강후기를 남겨주세요.</p>
-     
+    
             <div class="review_rating rating_point">
                 <div class="warning_msg">별점을 선택해 주세요.</div>
                 <span class="rating">
@@ -234,10 +155,10 @@
             </div>
             <div class="review_contents">
                 <div class="warning_msg">5자 이상의 리뷰 내용을 작성해 주세요.</div>
-                <textarea rows="10" class="review_textarea" name="ccontent" id="ccontent"></textarea>
+                <textarea rows="10" class="review_textarea" name="ccontent"></textarea>
             </div>   
             <div class="cmd">
-            	<c:choose>
+                <c:choose>
             		<c:when test="${empty isLogon}">
             			<input type="button" name="isnot_Logon" id="isnot_Logon" value="등록">
             			<input type="button" name="save" id="save" value="등록" style="display:none">
@@ -251,15 +172,64 @@
                 </c:choose>
             </div>
         </form>
-        <table id="coments">
-        	<tr>
-        		<td></td><td></td><td></td>
-        	</tr>
-        	<tr>
-        		<td colspan="3">
-        	</tr>
-        </table>
     </div>
+
+    <div class="comment">
+        <table class="review">
+        	<c:choose>
+        		<c:when test="${empty commentsList}">
+        			<tr>
+        				<td>
+        					<span>등록된 강의후기가 없습니다.</span>
+        				</td>
+        			</tr>
+        		</c:when>
+        		<c:when test="${!empty commentsList}">
+        			<c:forEach var="comment" items="${commentsList}" varStatus="commentNum">
+        				<tr>
+                			<th><h3>${comment.mnickname}</h3></th>
+                			<td>
+                    			<span>${comment.ccontent}</span>
+                			</td>
+                			<td>
+                	    		<span class="review_rate">
+                	        		★★★★★
+                	        	<span class="review1" style="width:${comment.cscore * 20}%">★★★★★</span>
+                	    		</span>
+              	  			</td>
+              	  			<td>
+            	       			<span>${comment.cdate}</span>
+            	    		</td>
+            	    		<td>
+             	       		<span onclick="revise()"><a>수정/삭제</a></span>
+            	    		</td>
+          	  			</tr>
+          	  		</c:forEach>
+        		</c:when>
+        	</c:choose>
+        </table> 
+    </div>
+
+    <!--<div class="comment">
+        <ul>
+            <li>
+                <div class="nickname"><h3>섭섭한틀니</h3></div>
+                <div class="content">
+                    <div class="lec_info">한석원의 4의규칙</div>
+                    <div class="commtent">정말 좋은 명강의인거 같아요!</div>
+                </div>
+                <div class="user_rating">
+                    <span class="user_star">
+                        <span>★★★★★</span>
+                    </span>
+                </div>
+                <div class="reiview_info">
+                    <span class="date">2023.04.10 14:25</span>
+                    <span class="revise">수정/삭제</span>
+                </div>
+            </li>
+        </ul>      
+    </div>-->
+
 </body>
-<script type="text/javascript" src="${contextPath}/js/lecture_info.js"></script>
 </html>
