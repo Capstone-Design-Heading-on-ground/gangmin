@@ -1,20 +1,13 @@
 /**
  * 
  */
-function togglecon1()
+function togglecon1(event)
 {
-	var frmcate = document.frmcate;
-	frmcate.method = "post";
-	frmcate.action = "/gangmin/lecture/lowprice.do";
-	frmcate.submit();
-	
-}
+		var frmcate = document.frmcate;
+		var sort = event.target.value;
+		alert(`${sort}`);
+		frmcate.method = "get";
+		frmcate.action = "/gangmin/lecture/eventprice.do?do_sort="+sort;
+		frmcate.submit();
 
-function togglecon2()
-{
-	var frmcate = document.frmcate;
-	alert(`high price`);
-	frmcate.method = "post";
-	frmcate.action = "/gangmin/lecture/highprice.do";
-	frmcate.submit();
 }

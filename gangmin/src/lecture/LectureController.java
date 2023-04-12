@@ -73,23 +73,17 @@ public class LectureController extends HttpServlet {
 				request.setAttribute("lecturesList", lecturesList);
 				RequestDispatcher dispatch = request.getRequestDispatcher("/index.jsp");
 				dispatch.forward(request, response);
-			}else if(action.equals("/lowprice.do"))
+			}
+			else if(action.equals("/eventprice.do"))
 			{
-				System.out.println("low price event");
-				lecturesList = lectureService.lowpriceLectures();
+				String sort = request.getParameter("do_sort");
+				System.out.println(sort);
+				lecturesList = lectureService.eventpriceLectures(sort);
+
 				request.setAttribute("lecturesList", lecturesList);
 				RequestDispatcher dispatch = request.getRequestDispatcher("/index.jsp");
 				dispatch.forward(request, response);
 			}
-			else if(action.equals("/highprice.do"))
-			{
-				System.out.println("high price event");
-				lecturesList = lectureService.highpriceLectures();
-				request.setAttribute("lecturesList", lecturesList);
-				RequestDispatcher dispatch = request.getRequestDispatcher("/index.jsp");
-				dispatch.forward(request, response);
-			}
-			
 			else if(action.equals("/connectLecture")) {
 				int lkey = Integer.parseInt(request.getParameter("lkey"));
 				lectureVO = lectureService.infoLecture(lkey);
