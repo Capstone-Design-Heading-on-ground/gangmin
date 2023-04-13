@@ -2,10 +2,16 @@
     margin: 0;
     padding: 0;
 }
+a:link, a:visited{
+	text-decoration : none;
+}
+a:visited{
+	color : gray;
+}
+
 body{
     width: 1350px;
     margin: 0 auto;
-    padding-bottom: 20px;
 }
 ul{
     padding-top: 40px;
@@ -78,10 +84,24 @@ li{
     color: white;
     font-weight: 600;
 }
+#myPage{
+    margin-top: 40px;
+    width: 70px;
+    height: 30px;
+    background-color: #81F7BE;
+    border: 1px solid #eee;
+}
+#logout{
+    width: 100px;
+    height: 30px;
+    background-color: #A4A4A4;
+    border: none;
+    color: white;
+    font-weight: 600;
+}
 #advertise{
     background: linear-gradient(to right bottom, yellow, red);
     height: 80px;
-    margin-bottom: 8px;
 }
 #adfont{
     text-align: center;
@@ -93,53 +113,132 @@ li{
 #adfont > b{
     color: yellow;
 }
-
-h2, dd{
-    padding: 2px;
-}
-
-.content_wrap{
-    display: flex;
-}
-
-#main{
-    border: 1px solid;
+#aside_left{
     margin-right: 10px;
     width: 910px;
-    display: flex;
-    gap: 16px;
+    height: 1000px;
+    float: left;
 }
-
-#main img{
-    height: 300px;
-    aspect-ratio: 13/12;
-    object-fit: cover;
-}
-
-#info {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-
-#classinfo th{
-    width: 100px;
-}
-
 #aside_right{
     width: 430px;
+    height: 1000px;
+    float: left;
 }
-
+#search2{
+    height: 50px;
+}
+#div_checkbox{
+    height: 260px;
+    border: 2px solid gray;
+}
+#content{
+    margin-top: 20px;
+}
+#search2 > #txt_search2{
+    float: left;
+    height: 30px;
+    width: 878px;
+    margin-top: 10px;
+    border: 1px solid rgb(255, 48, 48);
+}
+#search2 > #txt_search2:focus{
+    outline: none;
+}
+#div_checkbox li{
+    padding-left: 10px;
+}
+#div_checkbox input{
+    margin-left: 2px;
+    margin-top:5px;
+}
+#search2 > #btn_search2{
+    margin-top: 10px;
+    float: left;
+    background-image: url("../images/button.png");
+    background-size: 30px 32px;
+    width: 30px;
+    height: 32px;
+    border: none;
+    cursor: pointer;
+}
+.category{
+    display: flex;
+    height: 75px;
+}
+.category > p{
+    font-size: 12px;
+    font-weight: bold;
+    margin-top: 10px;
+    margin-left: 10px;
+    width:50px;
+    padding-top: 0px;
+}
+.checkboxs{
+    padding-top: 7px;
+    width: 100%;
+    height:70px;
+}
+#sort{
+    margin-top: 20px;
+}
+#search3{
+    float: right;
+    background-color: #333;
+    color:white;
+    height: 30px;
+    cursor: pointer;
+    margin-top: 10px;
+    width:90px;
+}
+#sort input{
+    display: none;
+}
+#sort li{
+    padding:0px 10px;
+    width:80px;
+    float:left;
+    height: 40px;
+    line-height: 40px;
+    border:1px solid gray;
+    cursor: pointer;
+    color:gray;
+}
+#toggle1:checked + label li{
+    border: 1px solid black;
+    border-bottom: none;
+    color:black;
+    font-weight: bold;
+}
+#toggle2:checked + label li{
+    border: 1px solid black;
+    border-bottom: none;
+    color:black;
+    font-weight: bold;
+}
+#toggle3:checked + label li{
+    border: 1px solid black;
+    border-bottom: none;
+    color:black;
+    font-weight: bold;
+}
+#toggle4:checked + label li{
+    border: 1px solid black;
+    border-bottom: none;
+    color:black;
+    font-weight: bold;
+}
+#toggle5:checked + label li{
+    border: 1px solid black;
+    border-bottom: none;
+    color:black;
+    font-weight: bold;
+}
 #onoff input{
     display: none;
 }
 #onoff{
     width:100%;
     height: 50px;
-}
-
-#onoff *{
-    box-sizing: border-box;
 }
 #onoff li{
     font-weight: bolder;
@@ -165,16 +264,12 @@ h2, dd{
     color:gray;
     border: 1px solid gray;
 }
-
-
 #second{
+    clear: both;
     height: 50px;
-    display: flex;
-    width: 100%;
-    gap: 16px;
 }
-
 #like{
+    float: left;
     cursor: pointer;
     width:70px;
     height: 30px;
@@ -186,19 +281,16 @@ h2, dd{
     margin-top: 9px;
     margin-left: 10px;
 }
-
 #second p{
     text-align: center;
     font-size: small;
     color:#333;
     line-height: 50px;
 }
-
 #exam{
     background-color: #eee;
     height:450px;
 }
-
 #exam input{
     display: none;
 }
@@ -241,168 +333,53 @@ h2, dd{
     color: white;
 }
 
-.classinfo table{
-    width: 910px;
-    border: 1px solid;
+#line2{
+    display:none;
 }
 
-.classinfo th{
-    text-align: center;
-    background-color: darkgray;
-}
-p{
-    margin: 2px;
-    text-align: left;
-}
-caption{
-    font-size: 30px;
-}
-td{
-    text-align: center;
+#math{
+    display:none;
 }
 
-a, a:hover, a:visited, a:active{
-    text-decoration: none;
-    color: #000;
+.classes{
+    display: flex;
+    clear:both;
+    height: 150px;
+    border: 1px solid black;
+    border-top: none;
 }
-a:hover{
-    color: #a00;
-}
-h1{
-    text-align: center;
-    background-color: #fff;
-    padding: 5px;
-    margin: 0;
-}
-
-
-.wrap{
-    max-width: 1350px;
-    margin: 0 auto;
-    height: 100%;
-    padding: 20px;
-    box-sizing: border-box;
-
-}
-.reviewform textarea{
-    width: 100%;
-    padding: 10px;
-    box-sizing: border-box;
-}
-
-.cmd{
+.classes > .profile{
     margin-top: 20px;
-    text-align: right;
+    margin-left: 20px;
+    width: 100px;
+    height: 100px;
+    border-radius: 10px;
 }
-.cmd input[type="button"]{
-    padding: 10px 20px;
-    border: 1px solid #e8e8e8;
-    background-color: #fff;
-    background-color:#000;  
-    color: #fff;
+.classes  h2 {
+    margin-top: 20px;
+    margin-left: 20px;
 }
-
-.warning_msg {
-    display: none;
-    position: relative;
-    text-align: center;
-    line-height: 26px;
-    width: 100%;
-    color: red;
-    padding: 10px;
-    box-sizing: border-box;
-    border: 1px solid #e0e0e0;
+.classes  h3 {
+    margin-top: 50px;
+    margin-left: 300px;
 }
-
-.review_textarea{
-    display: block;
-    width: 100%;
-    resize: none;
+.classes input{
+    margin-left: 300px;
+    width: 150px;
 }
-
-.rating {
-    position: relative;
-    font-size: 3rem;
-    color: #ddd;
-  }
-  
-.rating input {
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    left: 0;
-    opacity: 0;
-    cursor: pointer;
-  }
-  
-  .rating span {
-    width: 0;
-    position: absolute; 
-    left: 0;
-    color: red;
-    overflow: hidden;
-    pointer-events: none;
-  }
-
-.comment table{
-    width: 100%;
-    border-top: 1px solid #444444;
-    border-collapse: collapse;
+.classes .star {
+    width:40px;
+    height:30px;
+    margin-top: 20px;
+    margin-left: 10px;
 }
-
-.review th, .review td {
-    border-bottom: 1px solid #444444;
-    padding: 10px;
-  }
-
-.review_rate {
-    position: relative;
-    font-size: 3rem;
-    color: #ddd;
-  }
-
-.review_rate .review1{
-    width: 90%;
-    position: absolute; 
-    left: 0;
-    color: red;
-    overflow: hidden;
-    pointer-events: none;
-  }
-
-  .review_rate .review2{
-    width: 70%;
-    position: absolute; 
-    left: 0;
-    color: red;
-    overflow: hidden;
-    pointer-events: none;
-  }
-
-  .center{
-    text-align: center;
-  }
-
-  .pagination {
-    margin-top: 15px;
-    display: inline-block;
-  }
-  
-
-  .pagination a {
-    color: black;
-    float:left;
-    padding: 8px 16px;
-    text-decoration: none;
-    transition: background-color .3s;
-    border: 1px solid #ddd;
-    margin: 0 4px;
-  }
-  
-  .pagination a.active {
-    background-color: #4CAF50;
-    color: white;
-    border: 1px solid #4CAF50;
-  }
-  
-  .pagination a:hover:not(.active) {background-color: #ddd;}
+.classes .div1{
+    width: 800px;
+}
+.div2 h3, .div2 input{
+    float: right;
+    margin-right: 50px;
+}
+.div2 h3{
+    font-size: 16px;
+}
