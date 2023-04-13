@@ -76,7 +76,7 @@ Rating.prototype.showMessage = function(type){//경고메시지 표시
     }
 }
 
-let rating = new Rating(); //별점 인스턴스 생성
+//let rating = new Rating(); //별점 인스턴스 생성
 
 const drawStar = (target) => {
     document.querySelector(`.rating span`).style.width = `${target.value * 10}%`;
@@ -86,23 +86,23 @@ function revise() {
     alert('수정 혹은 삭제하시겠습니까?')
 }
 
-var comments = ["댓글1", "댓글2", "댓글3", "댓글4", "댓글5", "댓글6", "댓글7", "댓글8", "댓글9", "댓글10", "댓글11", "댓글12", "댓글13", "댓글14", "댓글15", "댓글16", "댓글17", "댓글18", "댓글19", "댓글20", "댓글21", "댓글22", "댓글23", "댓글24", "댓글25", "댓글26", "댓글27", "댓글28", "댓글29", "댓글30"];
+// var comments = ["댓글1", "댓글2", "댓글3", "댓글4", "댓글5", "댓글6", "댓글7", "댓글8", "댓글9", "댓글10", "댓글11", "댓글12", "댓글13", "댓글14", "댓글15", "댓글16", "댓글17", "댓글18", "댓글19", "댓글20", "댓글21", "댓글22", "댓글23", "댓글24", "댓글25", "댓글26", "댓글27", "댓글28", "댓글29", "댓글30"];
 
-function showComments(pageNum) {
-    var startIndex = (pageNum - 1) * 10; // 시작 인덱스 계산
-    var endIndex = startIndex + 9; // 끝 인덱스 계산
-    if (endIndex >= comments.length) { // 마지막 페이지일 경우
-        endIndex = comments.length - 1;
-    }
+// function showComments(pageNum) {
+//     var startIndex = (pageNum - 1) * 10; // 시작 인덱스 계산
+//     var endIndex = startIndex + 9; // 끝 인덱스 계산
+//     if (endIndex >= comments.length) { // 마지막 페이지일 경우
+//         endIndex = comments.length - 1;
+//     }
 
-    var commentList = document.getElementById("comment-list");
-    commentList.innerHTML = ""; // 이전 페이지의 댓글 목록을 지우고
+//     var commentList = document.getElementById("comment-list");
+//     commentList.innerHTML = ""; // 이전 페이지의 댓글 목록을 지우고
 
-    for (var i = startIndex; i <= endIndex; i++) {
-        var comment = comments[i];
-        var li = document.createElement("li");
-        var text = document.createTextNode(comment);
-        li.appendChild(text);
-        commentList.appendChild(li); // 댓글 목록에 추가
-    }
-}
+//     for (var i = startIndex; i <= endIndex; i++) {
+//         var comment = comments[i];
+//         var li = document.createElement("li");
+//         var text = document.createTextNode(comment);
+//         li.appendChild(text);
+//         commentList.appendChild(li); // 댓글 목록에 추가
+//     }
+// }
