@@ -1,5 +1,6 @@
 package comment;
 
+import java.sql.Timestamp;
 import java.util.Date;
 
 public class CommentVO {
@@ -8,10 +9,10 @@ public class CommentVO {
 	private int lkey;
 	private int mkey;
 	private int crecommend;
-	private Date cdate;
+	private Timestamp cdate;
 	private float cscore;
 	private String mnickname;
-	
+
 	public CommentVO() {};
 	
 	public CommentVO(String ccontent, int lkey, int mkey, float cscore) {
@@ -65,7 +66,7 @@ public class CommentVO {
 		return cdate;
 	}
 	
-	public void setCdate(Date cdate) {
+	public void setCdate(Timestamp cdate) {
 		this.cdate = cdate;
 	}
 	

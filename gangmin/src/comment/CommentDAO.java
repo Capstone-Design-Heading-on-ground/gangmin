@@ -3,7 +3,12 @@ package comment;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.Timestamp;
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
+import java.util.TimeZone;
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -31,7 +36,6 @@ public class CommentDAO {
 		try {
 			conn = dataFactory.getConnection();
 			String query = "SELECT * FROM COMENT WHERE LKEY = ? ORDER BY CDATE DESC";
-			
 			pstmt = conn.prepareStatement(query);
 			pstmt.setInt(1, input_lkey);
 			System.out.println(query);
@@ -42,7 +46,7 @@ public class CommentDAO {
 				int lkey = rs.getInt("LKEY");
 				int mkey = rs.getInt("MKEY");
 				int crecommend = rs.getInt("CRECOMMEND");
-				Date cdate = rs.getDate("CDATE");
+				Timestamp cdate = rs.getTimestamp("CDATE");
 				float cscore = rs.getFloat("CSCORE");
 				String mnickname = queryUserNickname(mkey);
 				
