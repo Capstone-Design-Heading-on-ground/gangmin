@@ -212,5 +212,5 @@
 </body>
 <script src="${contextPath}/js/event.js"></script>
 <script src="${contextPath}/js/search.js"></script>
-<script src="js/script.js"></script>
+<script src="${contextPath}/js/script.js"></script>
 </html>
