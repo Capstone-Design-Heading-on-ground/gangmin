@@ -201,7 +201,14 @@
             	       			<span>${comment.cdate}</span>
             	    		</td>
             	    		<td>
-             	       		<span onclick="revise()"><a>수정/삭제</a></span>
+            	    		<c:choose>
+            	    			<c:when test="${comment.ckey eq mkey}">
+             	       				<span onclick="revise()"><a>수정/삭제</a></span>
+             	       			</c:when>
+             	       			<c:otherwise>
+             	       				<span><a>추천</a></span>             	       				            	       		
+             	       			</c:otherwise>
+            				</c:choose>
             	    		</td>
           	  			</tr>
           	  		</c:forEach>
