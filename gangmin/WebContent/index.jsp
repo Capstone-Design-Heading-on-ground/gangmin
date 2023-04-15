@@ -22,7 +22,7 @@
 <head>
     <meta charset="UTF-8">
     <title>강의의 민족 강민</title>
-    <link rel="stylesheet" href="${contextPath}/css/style2.css">
+    <link rel="stylesheet" href="${contextPath}/css/style3.css">
 </head>
 <body>
     <div id="wrap">
@@ -73,62 +73,103 @@
                 <div id="div_checkbox">
                     <div class="category">
                         <p>학원사</p>
-                        <div class="checkboxs">
+                        <div class="checkboxs1">
                         
-                            <li><input type="checkbox" value="a1">이투스</li>
-                            <li><input type="checkbox" value="a2">대성</li>
-                            <li><input type="checkbox" value="a3">메가스터디</li>
-                            <li><input type="checkbox" value="a4">스카이에듀</li>
-                            <li><input type="checkbox" value="a5">오르비</li>
-                            <li><input type="checkbox" value="a6">비타에듀</li>
-                            <li><input type="checkbox" value="a7">강남구청방송</li>
-                            <li><input type="checkbox" value="a8">ebsi</li>
-                            <li><input type="checkbox" value="a9">공신닷컴</li>
-                            <li><input type="checkbox" value="a10">10러셀블루</li>
-                        
+                            <li>
+                                <input type="checkbox" id="category_toggle1" value="a1">
+                                <label for="category_toggle1"><p>이투스</p></label>
+                            </li>
+                            <li>
+                                <input type="checkbox" id="category_toggle2" value="a2">
+                                <label for="category_toggle2"><p>대성</p></label>
+                            </li>
+                            <li>
+                                <input type="checkbox" id="category_toggle3" value="a3">
+                                <label for="category_toggle3"><p>메가스터디</p></label>
+                            </li>
+                            <li>
+                                <input type="checkbox" id="category_toggle4" value="a4">
+                                <label for="category_toggle4"><p>스카이에듀</p></label>
+                            </li>
+                            <li>
+                                <input type="checkbox" id="category_toggle5" value="a5">
+                                <label for="category_toggle5"><p>오르비</p></label>
+                            </li>
+                            <li>
+                                <input type="checkbox" id="category_toggle6" value="a6">
+                                <label for="category_toggle6"><p>ebsi</p></label>
+                            </li>
+
                         </div>
                     </div>
                     <div class="category">
                         <p>계열</p>
-                        <div class="checkboxs">
-                            <li><input type="radio" name="rd_line" id="p1" checked="checked"><label for="p1">인문계열</label></li>
-                            <li><input type="radio" name="rd_line" id="p2"><label for="p2">자연계열</label></li>
+                        <div class="checkboxs1">
+                            <li>
+                                <input type="radio" name="rd_line" id="p1" checked="checked">
+                                <label for="p1"><p>인문계열</p></label>
+                            </li>
+                            <li>
+                                <input type="radio" name="rd_line" id="p2">
+                                <label for="p2"><p>자연계열</p></label>
+                            </li>
                         </div>
                     </div>
                     <div class="category">
                         <p>과목</p>
-                        <div class="checkboxs" id="line1">
-                            <li><input type="radio" name="rd_sub1" id="k1"><label for="k1">국어</label></li>
-                            <li><input type="radio" name="rd_sub1" id="k2"><label for="k2">수학</label></li>
-                            <li><input type="radio" name="rd_sub1" id="k3"><label for="k3">영어</label></li>
-                            <li><input type="radio" name="rd_sub1" id="k4"><label for="k4">생활과 윤리</label></li>
-                            <li><input type="radio" name="rd_sub1" id="k5"><label for="k5">윤리와 사상</label></li>
-                            <li><input type="radio" name="rd_sub1" id="k6"><label for="k6">한국 지리</label></li>
-                            <li><input type="radio" name="rd_sub1" id="k7"><label for="k7">세계 지리</label></li>
+                        <div class="checkboxs2" id="line1">
+                            <li>
+                                <input type="radio" name="rd_sub1" id="k1">
+                                <label for="k1"><p>국어</p></label>
+                            </li>
+                            <li>
+                                <input type="radio" name="rd_sub1" id="k2">
+                                <label for="k2"><p>수학</p></label>
+                            </li>
+                            <li>
+                                <input type="radio" name="rd_sub1" id="k3">
+                                <label for="k3"><p>영어</p></label>
+                            </li>
+                            <li>
+                                <input type="radio" name="rd_sub1" id="k4">
+                                <label for="k4"><p>생활과 윤리</p></label>
+                            </li>
+                            <li>
+                                <input type="radio" name="rd_sub1" id="k5">
+                                <label for="k5"><p>윤리와 사상</p></label>
+                            </li>
+                            <li>
+                                <input type="radio" name="rd_sub1" id="k6">
+                                <label for="k6"><p>한국 지리</p></label>
+                            </li>
+                            <li>
+                                <input type="radio" name="rd_sub1" id="k7">
+                                <label for="k7"><p>세계 지리</p></label>
+                            </li>
                         </div>
-                        <div class="checkboxs" id="line2">
-                            <li><input type="radio" name="rd_sub2" id="m1"><label for="m1">국어</label></li>
-                            <li><input type="radio" name="rd_sub2" id="m2"><label for="m2">수학</label></li>
-                            <li><input type="radio" name="rd_sub2" id="m3"><label for="m3">영어</label></li>
-                            <li><input type="radio" name="rd_sub2" id="m4"><label for="m4">물리</label></li>
-                            <li><input type="radio" name="rd_sub2" id="m5"><label for="m5">화학</label></li>
-                            <li><input type="radio" name="rd_sub2" id="m6"><label for="m6">생물</label></li>
-                            <li><input type="radio" name="rd_sub2" id="m7"><label for="m7">지구과학</label></li>
+                        <div class="checkboxs2" id="line2">
+                            <li><input type="radio" name="rd_sub2" id="m1"><label for="m1"><p>국어</p></label></li>
+                            <li><input type="radio" name="rd_sub2" id="m2"><label for="m2"><p>수학</p></label></li>
+                            <li><input type="radio" name="rd_sub2" id="m3"><label for="m3"><p>영어</p></label></li>
+                            <li><input type="radio" name="rd_sub2" id="m4"><label for="m4"><p>물리</p></label></li>
+                            <li><input type="radio" name="rd_sub2" id="m5"><label for="m5"><p>화학</p></label></li>
+                            <li><input type="radio" name="rd_sub2" id="m6"><label for="m6"><p>생물</p></label></li>
+                            <li><input type="radio" name="rd_sub2" id="m7"><label for="m7"><p>지구과학</p></label></li>
                         </div>
                     </div>
                     <div class="category">
                         <p>단원</p>
-                        <div class="checkboxs" id="korean">
-                            <li><input type="radio" name="radio_final" value="rk1" id="kk1"><label for="kk1">화법과 작문</label></li>
-                            <li><input type="radio" name="radio_final" value="rk2" id="kk2"><label for="kk2">문학</label></li>
-                            <li><input type="radio" name="radio_final" value="rk3" id="kk3"><label for="kk3">비문학</label></li>
+                        <div class="checkboxs2" id="korean">
+                            <li><input type="radio" name="radio_final" value="rk1" id="kk1"><label for="kk1"><p>화법과 작문</p></label></li>
+                            <li><input type="radio" name="radio_final" value="rk2" id="kk2"><label for="kk2"><p>문학</p></label></li>
+                            <li><input type="radio" name="radio_final" value="rk3" id="kk3"><label for="kk3"><p>비문학</p></label></li>
                         </div>
-                        <div class="checkboxs" id="math">
-                            <li><input type="radio" name="radio_final" value="c1" id="mm1"><label for="mm1">수학I</label></li>
-                            <li><input type="radio" name="radio_final" value="c2" id="mm2"><label for="mm2">수학II</label></li>
-                            <li><input type="radio" name="radio_final" value="c3" id="mm3"><label for="mm3">미적분</label></li>
-                            <li><input type="radio" name="radio_final" value="c4" id="mm4"><label for="mm4">확률과 통계</label></li>
-                            <li><input type="radio" name="radio_final" value="c5" id="mm5"><label for="mm5">기하와 벡터</label></li>
+                        <div class="checkboxs2" id="math">
+                            <li><input type="radio" name="radio_final" value="c1" id="mm1"><label for="mm1"><p>수학I</p></label></li>
+                            <li><input type="radio" name="radio_final" value="c2" id="mm2"><label for="mm2"><p>수학II</p></label></li>
+                            <li><input type="radio" name="radio_final" value="c3" id="mm3"><label for="mm3"><p>미적분</p></label></li>
+                            <li><input type="radio" name="radio_final" value="c4" id="mm4"><label for="mm4"><p>확률과 통계</p></label></li>
+                            <li><input type="radio" name="radio_final" value="c5" id="mm5"><label for="mm5"><p>기하와 벡터</p></label></li>
                         </div>
                     </div>
                 </div>
