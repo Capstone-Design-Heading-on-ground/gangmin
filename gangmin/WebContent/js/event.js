@@ -11,3 +11,9 @@ function togglecon1(event)
 		frmcate.submit();
 
 }
+
+function doSearch()
+{
+	let selectedAcademy = $("#categoryAcademy input[type=radio]:checked").val();
+	alert(selectedAcademy);
+}

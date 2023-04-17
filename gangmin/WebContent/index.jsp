@@ -71,10 +71,11 @@
                     <input type="submit" id="btn_search2" value="">
                 </div>
                 <div id="div_checkbox">
+                	<form method="get" action="/" name="categorySearch">
                     <div class="category">
                         <p>학원사</p>
                         <div class="checkboxs1">
-                        
+                        	<fieldset id='categoryAcademy' class='Academy'>
                             <li>
                                 <input type="checkbox" id="category_toggle1" value="a1">
                                 <label for="category_toggle1"><p>이투스</p></label>
@@ -99,7 +100,7 @@
                                 <input type="checkbox" id="category_toggle6" value="a6">
                                 <label for="category_toggle6"><p>ebsi</p></label>
                             </li>
-
+							</fieldset>
                         </div>
                     </div>
                     <div class="category">
@@ -172,6 +173,7 @@
                             <li><input type="radio" name="radio_final" value="c5" id="mm5"><label for="mm5"><p>기하와 벡터</p></label></li>
                         </div>
                     </div>
+                    </form>
                 </div>
                 <form name = "frmcate">
                 <div id="sort" name = "sort">
@@ -191,7 +193,7 @@
                     <label for="toggle5"><li>강의명순</li></label>                                 
                 </div>
                 </form>
-                <input type="button" value="결과 내 검색" id="search3" onclick="doSearch()">
+                <input type="button" value="결과 내 검색" id="search3" onclick="doSearch" name="btn_search2"></input>
                 <c:choose>
                 	<c:when test="${empty lecturesList }">
                 		<div class="classes">
