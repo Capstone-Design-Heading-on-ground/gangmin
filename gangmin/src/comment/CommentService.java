@@ -18,4 +18,9 @@ public class CommentService {
 	public void addComment(CommentVO commentVO) {
 		commentDAO.addComment(commentVO);
 	}
+	
+	public void delComment(int ckey, int lkey) {
+		commentDAO.delComment(ckey);
+		commentDAO.updateL(lkey);
+	}
 }

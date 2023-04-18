@@ -52,6 +52,13 @@ public class CommentController extends HttpServlet {
 				
 				nextPage = request.getContextPath() + "/lecture/connectLecture?lkey=" + lkey;
 				response.sendRedirect(nextPage);
+			}else if(action.equals("/delComment")) {
+				int ckey = Integer.parseInt(request.getParameter("ckey"));
+				int lkey = Integer.parseInt(request.getParameter("lkey"));
+				
+				commentService.delComment(ckey, lkey);
+				nextPage = request.getContextPath() + "/lecture/connectLecture?lkey=" + lkey;
+				response.sendRedirect(nextPage);
 			}
 		}catch(Exception e) {
 			e.printStackTrace();

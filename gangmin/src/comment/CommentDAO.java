@@ -88,7 +88,7 @@ public class CommentDAO {
 			pstmt.setFloat(4, cscore);
 			pstmt.executeUpdate();
 			
-			query = "UPDATE LECTURE SET LSUMGRADE = LSUMGRADE + ?" +
+			/*query = "UPDATE LECTURE SET LSUMGRADE = LSUMGRADE + ?" +
 					" WHERE LKEY = ?";
 			pstmt = conn.prepareStatement(query);
 			pstmt.setFloat(1, cscore);
@@ -99,6 +99,24 @@ public class CommentDAO {
 					" WHERE LKEY = ?";
 			pstmt = conn.prepareStatement(query);
 			pstmt.setInt(1, lkey);
+			pstmt.executeUpdate();
+			*/
+			updateL(lkey);
+			
+			pstmt.close();
+			conn.close();
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
+	public void delComment(int ckey) {
+		try {
+			conn = dataFactory.getConnection();
+			
+			String query = "DELETE FROM COMENT WHERE CKEY = ?";
+			pstmt = conn.prepareStatement(query);
+			pstmt.setInt(1, ckey);
 			pstmt.executeUpdate();
 			
 			pstmt.close();
@@ -126,5 +144,42 @@ public class CommentDAO {
 			e.printStackTrace();
 		}
 		return mnickname;
+	}
+	
+	public void updateL(int lkey) {
+		float lsumgrade = 0;
+		int lcountgrade = 0;
+		
+		try {
+			conn = dataFactory.getConnection();
+			String query = "SELECT CSCORE FROM COMENT WHERE LKEY = ?";
+			pstmt = conn.prepareStatement(query);
+			pstmt.setInt(1, lkey);
+			ResultSet rs = pstmt.executeQuery();
+			while(rs.next()) {
+				lcountgrade++;
+				lsumgrade = lsumgrade + rs.getFloat("CSCORE");
+			}
+			
+			query = "UPDATE LECTURE SET LCOUNTGRADE = ?"+
+				    " WHERE LKEY = ?";
+			pstmt = conn.prepareStatement(query);
+			pstmt.setInt(1, lcountgrade);
+			pstmt.setInt(2, lkey);
+			pstmt.executeUpdate();
+			
+			query = "UPDATE LECTURE SET LSUMGRADE = ?"+
+				    " WHERE LKEY = ?";
+			pstmt = conn.prepareStatement(query);
+			pstmt.setFloat(1, lsumgrade);
+			pstmt.setInt(2, lkey);
+			pstmt.executeUpdate();
+			
+			rs.close();
+			pstmt.close();
+			conn.close();
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
 	}
 }
