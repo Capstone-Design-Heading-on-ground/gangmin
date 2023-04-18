@@ -34,5 +34,10 @@ public class LectureService {
 		LectureVO infoLecture = lectureDAO.infoLecture(lkey);
 		return infoLecture;
 	}
+	
+	public List<LectureVO> categorySearch(String[] selectedAcademy, String radioValue1, String radioValue2, String radioValue4){
+		List<LectureVO> lecturesList = lectureDAO.categorySearch(selectedAcademy, radioValue1, radioValue2, radioValue4);
+		return lecturesList;
+	}
   
 }

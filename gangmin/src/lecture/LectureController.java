@@ -94,7 +94,23 @@ public class LectureController extends HttpServlet {
 				RequestDispatcher dispatch = request.getRequestDispatcher("/lecture_info.jsp");
 				dispatch.forward(request, response);
 				System.out.println(lkey);
-			}else {
+			}
+			else if(action.equals("/categorySearch.do")){
+				String[] selectedAcademy = request.getParameter("selectedAcademy").split(",");
+				String radioValue1 = request.getParameter("radioValue1");
+				String radioValue2 = request.getParameter("radioValue2");
+				//String radioValue3 = request.getParameter("radioValue3");
+				String radioValue4 = request.getParameter("radioValue4");
+				
+				lecturesList = lectureService.categorySearch(selectedAcademy, radioValue1, radioValue2, radioValue4);
+				
+				request.setAttribute("lecturesList", lecturesList);
+				nextPage = "/index.jsp";
+				RequestDispatcher dispatch = request.getRequestDispatcher("/index.jsp");
+				dispatch.forward(request, response);
+				
+			}
+			else {
 				System.out.println(action);
 			}
 			

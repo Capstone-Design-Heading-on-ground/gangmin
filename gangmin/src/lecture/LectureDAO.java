@@ -233,4 +233,82 @@ public class LectureDAO {
 		}
 		return lectureVO;
 	}
+	
+	public List<LectureVO> categorySearch(String[] selectedAcademy, String radioValue1, String radioValue2, String radioValue4){
+		List<LectureVO> lecturesList = new ArrayList();
+		try {
+			conn = dataFactory.getConnection();
+			String query = "SELECT LKEY, LID, LPRICE, LDURATION, LIMAGE, LSUMGRADE, LCOUNTGRADE"
+						+ " FROM LECTURE WHERE 1=1";
+			if(!radioValue4.equals("undefined")) {
+				query = query + " AND LUNIT = '";
+				query = query + radioValue4;
+				query = query + "'";
+			}
+			if(!radioValue2.equals("undefined")) {
+				query = query + " AND LSUBJECT = '";
+				query = query + radioValue2;
+				query = query + "'";
+			}
+			if(!radioValue1.equals("undefined")) {
+				if(radioValue1.equals("인문계열")) {
+					query = query + " AND (LSUBJECT = '국어'"
+								 		   +" OR LSUBJECT = '수학'"
+								 		   +" OR LSUBJECT = '영어'"
+								 		   +" OR LSUBJECT = '생활과 윤리'"
+								 		   +" OR LSUBJECT = '윤리와 사상'"
+								 		   +" OR LSUBJECT = '한국지리'"
+								 		   +" OR LSUBJECT = '세계지리')";													
+				}else {
+					query = query + " AND (LSUBJECT = '국어'"
+					 		   			+" OR LSUBJECT = '수학'"
+					 		   			+" OR LSUBJECT = '영어'"
+					 		   			+" OR LSUBJECT = '물리'"
+					 		   			+" OR LSUBJECT = '화학'"
+					 		   			+" OR LSUBJECT = '생물'"
+					 		   			+" OR LSUBJECT = '지구과학')";
+				}
+			}
+			if(selectedAcademy[0].length()!=0) {
+				query = query + " AND (LACADEMY = ''";
+				for(int i=0; i<selectedAcademy.length; i++) {
+					query = query + " OR LACADEMY = '";
+					query = query + selectedAcademy[i];
+					query = query + "'";
+				}
+				query = query + ")";
+						
+			}
+			
+			System.out.println(query);
+			pstmt = conn.prepareStatement(query);
+			ResultSet rs = pstmt.executeQuery();
+			while(rs.next()) {
+				int lkey = rs.getInt("LKEY");
+				String lid = rs.getString("LID");
+				int lprice = rs.getInt("LPRICE");
+				int lduration = rs.getInt("LDURATION");
+				String limage = rs.getString("LIMAGE");
+				float lsumgrade = rs.getFloat("LSUMGRADE");
+				int lcountgrade = rs.getInt("LCOUNTGRADE");
+				
+				LectureVO lecture = new LectureVO();
+				lecture.setLkey(lkey);
+				lecture.setLid(lid);
+				lecture.setLprice(lprice);
+				lecture.setLduration(lduration);
+				lecture.setLimage(limage);
+				lecture.setLsumgrade(lsumgrade);
+				lecture.setLcountgrade(lcountgrade);
+				lecturesList.add(lecture);
+			}
+			rs.close();
+			pstmt.close();
+			conn.close();
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+		
+		return lecturesList;
+	}
 }
