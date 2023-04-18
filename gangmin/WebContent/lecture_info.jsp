@@ -23,7 +23,7 @@
     <meta charset="UTF-8">
     <title>강의의 민족 강민</title>
     <link rel="stylesheet" href="${contextPath}/css/lecture_info.css">
-    <script type="text/javascript" src="${contextPath}/js/lecture_info.js"></script>
+    <script type="text/javascript" src="${contextPath}/js/lecture_info2.js"></script>
     
 </head>
 <body>
@@ -78,6 +78,8 @@
            				<dd><strong>제작방식</strong> : ${infoLecture.lcreate}</dd>
             			<dd><strong>학습단계</strong> : ${infoLecture.llevel}</dd>
             			<dd><strong>수강기간</strong> : ${infoLecture.ltime}시간</dd>
+            			<dd><strong>학원사</strong> : ${infoLecture.lacademy}</dd>
+            			<dd><img src="${contextPath}/images/star.png" style="width:20px; height:20px;"> ${infoLecture.lsumgrade / infoLecture.lcountgrade}</dd>
                     </dl>
                     <h2>가격 : ${infoLecture.lduration}개월 / ${infoLecture.lprice}만원</h2>
                 </div>   
@@ -202,8 +204,8 @@
             	    		</td>
             	    		<td>
             	    		<c:choose>
-            	    			<c:when test="${comment.ckey eq mkey}">
-             	       				<span onclick="revise()"><a>수정/삭제</a></span>
+            	    			<c:when test="${comment.mkey eq mkey}">
+             	       				<span onclick="revise(${comment.ckey},${infoLecture.lkey})"><a>삭제</a></span>
              	       			</c:when>
              	       			<c:otherwise>
              	       				<span><a>추천</a></span>             	       				            	       		

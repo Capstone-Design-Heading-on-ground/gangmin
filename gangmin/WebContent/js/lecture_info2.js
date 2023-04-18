@@ -93,6 +93,30 @@ let rating = new Rating(); //별점 인스턴스 생성
 const drawStar = (target) => {
     document.querySelector(`.rating span`).style.width = `${target.value * 10}%`;
   }
-function revise() {
-    alert('수정 혹은 삭제하시겠습니까?')
+function revise(target,lkey) {
+    if(!confirm('삭제하시겠습니까?')){
+		return false;
+	}else{
+		var form = document.createElement("form");
+			form.setAttribute("charset","UTF-8");
+			form.setAttribute("method","Post");
+			form.setAttribute("action","/gangmin/comment/delComment");
+			
+		var hiddenField = document.createElement("input");
+			hiddenField.setAttribute("type","hidden");
+			hiddenField.setAttribute("name", "ckey");
+			hiddenField.setAttribute("value", target);
+			form.appendChild(hiddenField);
+			
+			hiddenField = document.createElement("input");
+			hiddenField.setAttribute("type","hidden");
+			hiddenField.setAttribute("name", "lkey");
+			hiddenField.setAttribute("value", lkey);
+			form.appendChild(hiddenField);
+			
+			document.body.appendChild(form);
+			form.submit();
+			
+	}
+    
 }
