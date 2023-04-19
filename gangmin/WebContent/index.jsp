@@ -80,8 +80,8 @@
                                 <label for="category_toggle1"><p>이투스</p></label>
                             </li>
                             <li>
-                                <input type="checkbox" id="category_toggle2" value="대성" name="checkList">
-                                <label for="category_toggle2"><p>대성</p></label>
+                                <input type="checkbox" id="category_toggle2" value="대성마이맥" name="checkList">
+                                <label for="category_toggle2"><p>대성마이맥</p></label>
                             </li>
                             <li>
                                 <input type="checkbox" id="category_toggle3" value="메가스터디" name="checkList">
