@@ -127,22 +127,22 @@ CREATE SEQUENCE tmp_seq START WITH 1 INCREMENT BY 1 MAXVALUE 100 CYCLE NOCACHE;
 ## DB QUERY문
 ### 1. Lecture Table
 ```
-	CREATE TABLE LECTURE(
+		CREATE TABLE LECTURE(
     lkey NUMBER(8) PRIMARY KEY,
-    lid VARCHAR2(45) NOT NULL,
+    lid VARCHAR2(2000) NOT NULL,
     lname VARCHAR2(45) NOT NULL,
-    ltype VARCHAR2(45),
-    lconst VARCHAR2(45),
+    ltype VARCHAR2(2000),
+    lconst VARCHAR2(2000),
     lsubject VARCHAR2(45),
-    lunit VARCHAR2(45),
-    luser VARCHAR2(45),
-    lcreate VARCHAR2(45),
+    lunit VARCHAR2(500),
+    luser VARCHAR2(2000),
+    lcreate VARCHAR2(2000),
     llevel VARCHAR2(45),
     ltime NUMBER(8),
     lprice NUMBER(10),
     lduration NUMBER(8),
     linfo VARCHAR2(4000),
-    ltarget VARCHAR2(100),
+    ltarget VARCHAR2(2000),
     limage VARCHAR2(255),
     lstartdate DATE,
     lsumgrade NUMBER(10,2),
