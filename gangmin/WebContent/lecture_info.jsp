@@ -79,7 +79,7 @@
             			<dd><strong>학습단계</strong> : ${infoLecture.llevel}</dd>
             			<dd><strong>수강기간</strong> : ${infoLecture.ltime}시간</dd>
             			<dd><strong>학원사</strong> : ${infoLecture.lacademy}</dd>
-            			<dd><img src="${contextPath}/images/star.png" style="width:20px; height:20px;"> ${infoLecture.lsumgrade / infoLecture.lcountgrade}</dd>
+            			<dd><img src="${contextPath}/images/star.png" style="width:20px; height:20px;"> <fmt:formatNumber value="${lecture.lsumgrade / lecture.lcountgrade}" pattern=".00"/></dd>
                     </dl>
                     <h2>가격 : ${infoLecture.lduration}개월 / ${infoLecture.lprice}만원</h2>
                 </div>   
