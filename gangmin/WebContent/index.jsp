@@ -201,10 +201,10 @@
                 	<c:when test="${!empty lecturesList }">
                 		<c:forEach var="lecture" items="${lecturesList }" varStatus="lectureNum">
                 			<div class="classes">
-                				<img class="profile" src="${contextPath}/images/${lecture.limage}">
+                				<img class="profile" src="${contextPath}/images/${lecture.limage}" style="width:100px;hight:100px">
                 				<div class="div1">
                 					<a href="${contextPath}/lecture/connectLecture?lkey=${lecture.lkey}">
-                					<h2>${lecture.lid}</h2>
+                					<h2 style="width:300px;font-size:18px;">${lecture.lid}</h2>
                 					</a>
                 					<img class="star" src="${contextPath}/images/star.png">
                 					<b><fmt:formatNumber value="${lecture.lsumgrade / lecture.lcountgrade}" pattern=".00"/></b>(${lecture.lcountgrade})
