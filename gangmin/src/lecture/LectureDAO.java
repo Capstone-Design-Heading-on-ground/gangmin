@@ -257,8 +257,8 @@ public class LectureDAO {
 								 		   +" OR LSUBJECT = '영어'"
 								 		   +" OR LSUBJECT = '생활과 윤리'"
 								 		   +" OR LSUBJECT = '윤리와 사상'"
-								 		   +" OR LSUBJECT = '한국지리'"
-								 		   +" OR LSUBJECT = '세계지리')";													
+								 		   +" OR LSUBJECT = '한국 지리'"
+								 		   +" OR LSUBJECT = '세계 지리')";													
 				}else {
 					query = query + " AND (LSUBJECT = '국어'"
 					 		   			+" OR LSUBJECT = '수학'"

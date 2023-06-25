@@ -5,6 +5,9 @@
 a:link, a:visited{
 	text-decoration : none;
 }
+a:link{
+	color: black;
+}
 a:visited{
 	color : gray;
 }
@@ -358,6 +361,7 @@ li{
 .classes  h2 {
     margin-top: 20px;
     margin-left: 20px;
+    font-size: 10px;
 }
 .classes  h3 {
     margin-top: 50px;
